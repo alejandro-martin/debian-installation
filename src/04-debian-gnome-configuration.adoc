@@ -1,6 +1,7 @@
 
 = _Debian Gnome_ configuration
 ☣ By Alejandro Martin
+:docinfo: shared
 :toc: left
 :icons: font
 :last-update-label!:

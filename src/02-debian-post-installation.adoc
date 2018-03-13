@@ -1,6 +1,7 @@
 
 = _Debian_ Post-installation Guide
 ☣ By Alejandro Martin
+:docinfo: shared
 :toc: left
 :icons: font
 :last-update-label!:

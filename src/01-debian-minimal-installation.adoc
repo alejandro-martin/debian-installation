@@ -1,9 +1,9 @@
 
 = _Debian_ minimal installation with _Gnome_
 ☣ By Alejandro Martin
+:docinfo: shared
 :toc: left
 :icons: font
-:nofooter:
 :last-update-label!:
 
 * The used release is _Debian Stretch_.
