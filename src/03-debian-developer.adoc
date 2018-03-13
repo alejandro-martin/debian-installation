@@ -1,0 +1,147 @@
+
+= _Debian_ Developer Installation
+☣ By Alejandro Martin
+:toc: left
+:icons: font
+:last-update-label!:
+
+* The used release is _Debian Stretch_.
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[github]
+
+== Install _Java_
+
+_SDKMAN!_ will be used for installing _JDK_. With this software many versions
+(_open-jdk 8_, _open-jdk 9_, _java oracle 8_, ...) could be installed and managed easily.
+
+=== Install _SDKMAN!_
+ . Enter and follow instructions:
+
+ curl -s "https://get.sdkman.io" | bash
+
+ . Run:
+
+ source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+. To check if the installation succeeded:
+
+ sdk version
+
+=== Install _JDK_
+
+ . List all _JDK_ available:
+
+  sdk list java
+
+NOTE: _OpenJDK_ is marked as _ZULU_ since the compiler is hosted there.
+
+. Install desired _JDK_ and install:
+
+  sdk install java 8u161-oracle
+
+TIP: other _JVM_ languages or software could be installed with _SDKMAN!_ as _Kotlin_,
+_Scala_, _Gradle_, _Maven_ and so on
+
+=== Traditional _OpenJDK_ installation
+
+But if traditional _OpenJDK_ installation is still preferred.
+
+ . Install _OpenJdk_ _JDK_ and _JVM_ Java 8 :
+
+ sudo apt-get install openjdk-8-jdk openjdk-8-jre
+
+
+== Install _Atom_
+
+ . Get _.deb_ package from the _Atom_ website
+
+ . Go to download location and install package:
+
+ sudo dpkg -i atom-amd64.deb
+
+ . If there are missing dependencies, install them with:
+
+  sudo apt-get install -f
+
+NOTE: To install packages and themes go to `Edit > Preferences > Install`
+
+== Install _Visual Studio Code_
+
+. Get _.deb_ package from the _Visual Studio Code_ website
+
+. Go to download location and install package:
+
+ sudo dpkg -i code_1.19.2-1515599945_amd64.deb
+
+. If there are missing dependencies, install them with:
+
+ sudo apt-get install -f
+
+== Install _IntelliJ Idea_
+
+NOTE: Based on _JDK_ installation, choose whether to install to all user or only
+current user
+
+ . Get _.deb_ package from the _Jetbrains_ website
+
+ . Go to download location and extract files:
+
+ tar -xvzf ideaIU-2017.3.3.tar.gz
+
+ . Move extracted folder to `opt` folder:
+
+ sudo mv idea-IU-173.4301.25/ /opt/
+
+ . Execute binary file of the IDE and follow instructions to install:
+
+ /opt/idea-IU-173.4301.25/bin/idea.sh
+
+ . If it is necesary the _jdk_ installation folder must be indicated.
+
+== Install _Postman_
+
+To test apis.
+
+ . Get sources from the _Postman_ page
+
+ . Go to download location and extract files:
+
+ tar -xvzf Postman-linux-x64-5.5.2.tar.gz
+
+ . Move extracted folder to `opt` folder:
+
+ sudo mv Postman /opt/
+
+ . Create a symbolic link for execute the software from terminal
+
+ sudo ln -s /opt/Postman/Postman /usr/bin/postman
+
+ . Create a _.desktop_ file in order to launch the app from the applications menu,
+ with the name of _postman.desktop_
++
+ sudo vim /usr/share/applications/postman.desktop
++
+with the following information:
++
+.postman.desktop
+----
+[Desktop Entry]
+Encoding=UTF-8
+Name=Postman
+Exec=postman
+Icon=/opt/Postman/resources/app/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;
+----
++
+save and exit.
+
+TIP: Go to _Settings_ > _Themes_ to change user theme.
+
+¡FIN!
+
+== On _Debian_ installation series
+
+* link:./index.html[01 - Debian Minimal Installation]
+* link:./index-02.html[02 - Debian Post Installation]
+* link:./index-04.html[04 - Debian Gnome Configuration]

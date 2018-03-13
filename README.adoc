@@ -1,0 +1,21 @@
+== Debian Installation Guide
+
+This is a personal guide to install a minimal _Debian_ with the _Gnome_ desktop,
+quite general, but at the end is a personal guide and that's why it has some
+custom configuration.
+
+Hope it helps to you.
+
+== Compiling
+
+To compile the files into _HTML_ pages:
+
+ sh build.sh
+
+== Notes
+
+ * Substitute _Vim_ for _Nano_ in any step if you haven't use _Vim_.
+ * Grub is _boot loader_ which let the user decide which _operating system_ to boot,
+ beetwen the installed ones.
+ * For comfort, the _Gnome_ desktop configuration can be done first. Look at the
+ _Debian Gnome Configuration_ part.

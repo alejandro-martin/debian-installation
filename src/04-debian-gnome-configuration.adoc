@@ -1,0 +1,161 @@
+
+= _Debian Gnome_ configuration
+☣ By Alejandro Martin
+:toc: left
+:icons: font
+:last-update-label!:
+
+* The used release is _Debian Stretch_.
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[github]
+
+== Set keyboard language
+
+ . Go to `Settings > Region & Language`
+ . Select `Language` and `Input sources`
+
+NOTE: If desired language does not appear, configure _locales_ on terminal:
+`sudo dpkg-reconfigure locales`
+
+== Activate touchpad click
+
+ . Go to `Settings > Mouse & Touchpad`
+ . Select `Tap to click`
+
+== Turn off _Blank Screen_
+
+. Go to `Settings > Power`
+. Select desired option on `Blank Screen`
+. Turn off `Automatic Suspend`
+
+== _Gnome Tweak Tool_
+
+Tool for extra gnome configuration.
+
+. Install _Gnome Tweak Tool_(usually is already installed):
+
+ sudo aptitude install gnome-tweak-tool
+
+where you can:
+
+ * Active _Dark Theme_ on `Appearance` tab
+
+ * On `Desktop` tab active 'Icons on Desktop'
+
+ * On `Extension` tab active: `Alternatetab`, `User Themes`, `Launch new instance`
+
+ * On `Windows` active `maximize` and `minimize` buttons of title bar
+
+== Shortcuts
+
+Go to `Settings > Keyboard` and click at the end of the window the symbol `+`
+to add a custom shortcut:
+
+ * Add _Gnome terminal_:
+----
+Name: Gnome Terminal
+Command: gnome-terminal
+Shortcut: Ctrl + Alt + T
+----
+
+* Add _Nautilus_(File explorer):
+----
+Name: Nautilus
+Command: Nautilus
+Shortcut: Super(windows) + E
+----
+
+* Hide all windows and show desktop, select existing `Hide all normal windows`
+of the `Navigation` section:
+----
+Name: Hide all normal windows
+Shortcut: Super(windows) + D
+----
+
+* Lock screen, select existing `Lock screen` of the `System` section:
+----
+Name: Lock screen
+Shortcut: Super(windows) + L
+----
+
+== Create new "`Documents`" with right click
+
+ . Go to `Templates` folder on user home an create an empty file:
++
+ touch "$HOME/Templates/empty"
++
+This will create an option on the right click menu named `New Document` where all the
+files on the `Templates` folder will be available
+
+ . Repeat this step with all new document templates
+
+== Order icons by type on _Nautilus_(File explorer)
+
+ . Open _Nautilus_
+ . Open _Preferences_ menu: `Click on Files(at activities bar) > Preferences`
+ . Select `Sort folders before files` at `Views` tab
+
+== Install Extra Fonts
+
+On terminal type:
+
+ sudo apt-get install ttf-freefont ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-liberation
+
+== Modify Activities Bar
+
+ . Install `Activities Configurator` extension from
+ https://extensions.gnome.org/extension/358/activities-configurator/
+
+ . To Configure extension, open _Tweak Tool_: `Extensions(tab) > Activities Configurator >
+ Click on Gear symbol`
+
+ . Change symbol of activites bar, click on `Select icon` and search for desired icon.
+(_debian_ logo located at `/usr/share/pixmaps/debian-logo.png`)
+
+. Active `Hide text`, configure `Icon Padding` , `Panel Transparency`, etc.
+
+== Set new icons theme
+
+ . Download icon pack(for instance _Luv icon theme_[before _Flattr icons master_] or _Paper icon theme_
+   or _Paper_)
+
+ . Extract folder and move to `/usr/share/icons`:
+
+ sudo mv FOLDER /usr/share/icons
+
+ . Select icon theme on _Tweak Tool_ in `Appearance` tab
+
+Some icons package:
+
+ * _Luv icon theme_: https://github.com/Nitrux/luv-icon-theme
+ * _Flattr icons_: https://github.com/Nitrux/luv-icon-theme/releases/tag/v1.3
+ * _Paper theme_: https://snwh.org/paper
+
+== Set new _Gnome Shell_ themes
+
+ . Download _Gnome Shell_ themes(for instance _moka-gnome-shell-theme_ or
+   _minimoka-gnome-shell_)
+
+ . Extract folder and move to `/usr/share/themes`:
+
+ sudo mv FOLDER /usr/share/themes
+
+ . Select _Gnome Shell_ theme on _Tweak Tool_ in `Appearance` tab
+
+Some themes packages:
+
+ * _Minimoka Gnome Shell_: https://github.com/ohanhi/minimoka-gnome-shell
+
+== Modify Terminal Colors
+
+ . Open terminal
+ . `Edit > Profile preferences > Colors(tab)`
+ . Uncheck `User colors from system theme`
+ . Select `Green on black` on `Built-in schemes`
+
+¡FIN!
+
+== On _Debian_ installation series
+
+* link:./index.html[01 - Debian Minimal Installation]
+* link:./index-02.html[02 - Debian Post Installation]
+* link:./index-03.html[03 - Debian Developer Installation]
