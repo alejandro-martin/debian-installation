@@ -6,6 +6,8 @@ custom configuration.
 
 Hope it helps to you.
 
+Website for the guides: https://alejandro-martin.github.io/debian-installation/
+
 == Compiling
 
 To compile the files into _HTML_ pages:
