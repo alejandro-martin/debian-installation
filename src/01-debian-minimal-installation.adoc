@@ -6,8 +6,8 @@
 :icons: font
 :last-update-label!:
 
-* The used release is _Debian Stretch_.
-* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[github]
+* The used release is _Debian Buster_.
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github]
 
 Guide for a minimal _Debian_ installation with _Gnome_ desktop.
 
@@ -17,10 +17,10 @@ NOTE: All the commands have to be run as superuser.
 
 == Minimal system installation
 
-. Create bootable usb. If extra firmware(drivers) are needed,
+. Create bootable USB. If extra firmware(drivers) are needed,
  download them from _Debian_ repositories website and put _.ucode_ and _.fw_ files
- in the root of another usb.
-. Boot system from usb. If _UEFI_ installation is needed, boot the usb in
+ in the root of another USB.
+. Boot system from USB. If _UEFI_ installation is needed, boot the USB in
 UEFI mode, and after keyboard configuration go to a new terminal(`ctrl+alt+f1`)
  and type:
 +
@@ -53,7 +53,7 @@ name like `wlan0` or `wlp1s0`:
 
  iw INTERFACE_NAME scan | less
 
-. Create file with the network(replacing `NETWORK_NAME`). NOTE: After run
+. Create a file with the network(replacing `NETWORK_NAME`). NOTE: After run
 the command, the password has to be inmediately typed:
 
  wpa_passphrase NETWORK_NAME >> /etc/wpa_supplicant/wpa_supplicant.conf
@@ -99,7 +99,7 @@ IMPORTANT: This step is only needed if the _Debian Testing_ release is wanted.
 
 . Save and quit.
 
-. It may have end up like this:
+. It may end up like this:
 +
 .sources.list
 ----
@@ -157,7 +157,7 @@ As an alternative it can be used:
 +
  apt-get install firmware-iwlwifi
 +
-As alternative to install wifi in older _Debian_ versions:
+As an alternative, to install wifi in older _Debian_ versions:
 +
  apt-get install iwlwifi
 
@@ -174,19 +174,19 @@ In older _Debian_ versions it can be used:
 
 == Install Graphics card firmware
 
-=== Install Nvidia Drivers
+=== Install _Nvidia_ Drivers
 
-. Install Nvidia firmware:
+. Install _Nvidia_ firmware:
 +
  apt-get install linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//') nvidia-driver
 +
-For support of GeForce 6xxx and 7xxx GPUs:
+For support of _GeForce_ 6xxx and 7xxx GPUs:
 +
  apt-get install linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//') nvidia-legacy-340xx-driver
 
-=== Install Amd Graphics Drivers
+=== Install _AMD_ Graphics Drivers
 
-. Install amd graphics firmware:
+. Install _AMD_ graphics firmware:
 
  apt-get install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') fglrx-driver
 
@@ -196,7 +196,7 @@ For support of GeForce 6xxx and 7xxx GPUs:
 
  reboot
 
-IMPORTANT: After installation it has to be ensured that _Debian_ partition is
+IMPORTANT: After installation it should verify that _Debian_ partition is
 the primary boot drive in order to run the grub for multi-booting systems.
 
 ¡FIN!
@@ -206,3 +206,5 @@ the primary boot drive in order to run the grub for multi-booting systems.
 * link:./index-02.html[02 - Debian Post Installation]
 * link:./index-03.html[03 - Debian Developer Installation]
 * link:./index-04.html[04 - Debian Gnome Configuration]
+
+include::disqus.adoc[]

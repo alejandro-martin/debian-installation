@@ -6,8 +6,8 @@
 :icons: font
 :last-update-label!:
 
-* The used release is _Debian Stretch_.
-* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[github]
+* The used release is _Debian Buster_.
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github]
 
 Post-installation guide after a minimal _Debian_ installation with _Gnome_.
 
@@ -394,3 +394,5 @@ activated, or if the storage is not available.
 * link:./index.html[01 - Debian Minimal Installation]
 * link:./index-03.html[03 - Debian Developer Installation]
 * link:./index-04.html[04 - Debian Gnome Configuration]
+
+include::disqus.adoc[]

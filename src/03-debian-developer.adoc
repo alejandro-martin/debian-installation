@@ -6,8 +6,8 @@
 :icons: font
 :last-update-label!:
 
-* The used release is _Debian Stretch_.
-* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[github]
+* The used release is _Debian Buster_.
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github]
 
 == Install _Java_
 
@@ -146,3 +146,5 @@ TIP: Go to _Settings_ > _Themes_ to change user theme.
 * link:./index.html[01 - Debian Minimal Installation]
 * link:./index-02.html[02 - Debian Post Installation]
 * link:./index-04.html[04 - Debian Gnome Configuration]
+
+include::disqus.adoc[]
