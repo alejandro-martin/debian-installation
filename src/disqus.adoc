@@ -1,17 +1,12 @@
-== net
 
-sdfd
+== Comments
 
 ++++
 <div id="disqus_thread"></div>
 <script>
-var uuidPage = 57958cef-e22c-4fd9-b93c-b248b5b01a1b;
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
+var uuidPage = 57958;
 var disqus_config = function () {
-  this.page.url = https:
+  this.page.url = 'ttps://alejandro-martin.github.io/debian-installation/';
   this.page.identifier = uuidPage;
 };
 

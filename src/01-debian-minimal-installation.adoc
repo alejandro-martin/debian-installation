@@ -5,6 +5,7 @@
 :toc: left
 :icons: font
 :last-update-label!:
+:nofooter:
 
 * The used release is _Debian Buster_.
 * Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github]

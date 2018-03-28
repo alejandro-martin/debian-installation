@@ -2,8 +2,8 @@
 
 SOURCE_DIR=src
 TARGET_DIR=docs
-STYLES="-a stylesdir=stylesheets/ -a stylesheet=$STYLE_SHEET"
 STYLE_SHEET=foundation.css
+STYLES="-a stylesdir=stylesheets/ -a stylesheet=$STYLE_SHEET"
 #STYLES=""
 
 asciidoctor $STYLES $SOURCE_DIR/01-debian-minimal-installation.adoc -o $TARGET_DIR/index.html
