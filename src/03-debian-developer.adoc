@@ -33,7 +33,7 @@ _SDKMAN!_ will be used for installing _JDK_. With this software many versions
 
   sdk list java
 
-NOTE: _OpenJDK_ is marked as _ZULU_ since the compiler is hosted there.
+TIP: You can choose free _Java_ implementations such as _OpenJDK_ or _ZULU_.
 
 . Install desired _JDK_ and install:
 
@@ -138,6 +138,11 @@ Categories=Development;
 save and exit.
 
 TIP: Go to _Settings_ > _Themes_ to change user theme.
+
+== Extras
+
+If you want to configure multiple _SSH_ keys for _Git_ check
+https://gist.github.com/alejandro-martin/9957fd0f55552f6f8f35602cb16dc253[this guide]
 
 ¡FIN!
 

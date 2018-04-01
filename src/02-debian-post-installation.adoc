@@ -45,7 +45,7 @@ NOTE: No only for development but to compile and install other software.
 
 . On terminal type:
 +
- sudo apt-get install build-essential cmake automake autoconf checkinstall git git-core wget gdb curl
+ sudo apt-get install build-essential cmake automake autoconf git git-core wget gdb curl
 +
 where:
 +
@@ -131,7 +131,7 @@ where `\u` is the username and `\W` is the last fragment of the current working 
 
 . Open and modify grub:
 
- sudo vim /etc/default/grub/
+ sudo vim /etc/default/grub
 
 . Select default operating system at startup [Optional]:
 +
@@ -233,7 +233,7 @@ NOTE: The repositories are based on a _Debian Testing_ release.
 
 . If the _gui_ is bad-looking, install theme support:
 
- sudo apt-get install libreoffice-style-tango libreoffice-gtk libreoffice-gtk3
+ sudo apt-get install libreoffice-style-tango libreoffice-gtk3
 
 === Install some basic gui tools
 
@@ -276,17 +276,18 @@ where:
 
 . Type:
 +
- sudo apt-get install lm-sensors youtube-dl screenfetch
+ sudo apt-get install lm-sensors youtube-dl screenfetch xclip
 +
 where:
 +
- * `lm-sensors`: Check processor temperatures. Type `sensors`.
- * `youtube-dl`: download youtube(and other pages) videos.
- * `screenfetch`: print system information.
+* `lm-sensors`: Check processor temperatures. Type `sensors`.
+* `youtube-dl`: download youtube(and other pages) videos.
+* `screenfetch`: print system information.
+* `xclip`: copy information to clipboard on terminal.
 +
 . Some leisure commands
 +
- sudo apt-get install cmatrix rig moria cowsay fortune libaa-bin
+ sudo apt-get install cmatrix rig moria cowsay fortune
 +
 where:
 +
@@ -305,6 +306,10 @@ where:
 . Compiler for creating _Asciidoctor_ documents:
 
  sudo apt-get install asciidoctor
+
+. To create _Asciidoctor_ files to _PDF_:
+
+ sudo gem install asciidoctor-pdf --pre
 
 === Install _Calibre_ [Optional]
 
@@ -369,14 +374,14 @@ UUID=94daf3fe-d750-4f10-96e4-5df4f99753bf none            swap    sw            
 
 #/dev/sdb1 /media/files ntfs default 0 0
 
-UUID=01D33276FAF0C850 /media/files ntfs-3g uid=1000,gid=users,umask=0022 0 0
+UUID=01D33276FAF0C850 /media/files ntfs-3g uid=1000,gid=1000,umask=0022 0 0
 ----
 +
 where:
 
 * `UUID` is the unique identifier of the partition.
 * `/media/files` is the destination folder.
-* `uid=1000,gid=users` are the owners.
+* `uid=1000,gid=1000` are the owners.
 * `umask=0022` are the permissions.
 
 . Reboot to ensure it succeeded. [Optional]

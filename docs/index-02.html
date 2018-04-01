@@ -866,7 +866,7 @@ No only for development but to compile and install other software.
 <p>On terminal type:</p>
 <div class="literalblock">
 <div class="content">
-<pre>sudo apt-get install build-essential cmake automake autoconf checkinstall git git-core wget gdb curl</pre>
+<pre>sudo apt-get install build-essential cmake automake autoconf git git-core wget gdb curl</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1061,7 +1061,7 @@ set smartindent
 <p>Open and modify grub:</p>
 <div class="literalblock">
 <div class="content">
-<pre>sudo vim /etc/default/grub/</pre>
+<pre>sudo vim /etc/default/grub</pre>
 </div>
 </div>
 </li>
@@ -1259,7 +1259,7 @@ sudo apt-get update</pre>
 <p>If the <em>gui</em> is bad-looking, install theme support:</p>
 <div class="literalblock">
 <div class="content">
-<pre>sudo apt-get install libreoffice-style-tango libreoffice-gtk libreoffice-gtk3</pre>
+<pre>sudo apt-get install libreoffice-style-tango libreoffice-gtk3</pre>
 </div>
 </div>
 </li>
@@ -1375,7 +1375,7 @@ sudo apt-get update</pre>
 <p>Type:</p>
 <div class="literalblock">
 <div class="content">
-<pre>sudo apt-get install lm-sensors youtube-dl screenfetch</pre>
+<pre>sudo apt-get install lm-sensors youtube-dl screenfetch xclip</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1392,6 +1392,9 @@ sudo apt-get update</pre>
 <li>
 <p><code>screenfetch</code>: print system information.</p>
 </li>
+<li>
+<p><code>xclip</code>: copy information to clipboard on terminal.</p>
+</li>
 </ul>
 </div>
 </li>
@@ -1399,7 +1402,7 @@ sudo apt-get update</pre>
 <p>Some leisure commands</p>
 <div class="literalblock">
 <div class="content">
-<pre>sudo apt-get install cmatrix rig moria cowsay fortune libaa-bin</pre>
+<pre>sudo apt-get install cmatrix rig moria cowsay fortune</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1449,6 +1452,14 @@ sudo apt-get update</pre>
 <div class="literalblock">
 <div class="content">
 <pre>sudo apt-get install asciidoctor</pre>
+</div>
+</div>
+</li>
+<li>
+<p>To create <em>Asciidoctor</em> files to <em>PDF</em>:</p>
+<div class="literalblock">
+<div class="content">
+<pre>sudo gem install asciidoctor-pdf --pre</pre>
 </div>
 </div>
 </li>
@@ -1560,7 +1571,7 @@ UUID=94daf3fe-d750-4f10-96e4-5df4f99753bf none            swap    sw            
 
 #/dev/sdb1 /media/files ntfs default 0 0
 
-UUID=01D33276FAF0C850 /media/files ntfs-3g uid=1000,gid=users,umask=0022 0 0</pre>
+UUID=01D33276FAF0C850 /media/files ntfs-3g uid=1000,gid=1000,umask=0022 0 0</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1575,7 +1586,7 @@ UUID=01D33276FAF0C850 /media/files ntfs-3g uid=1000,gid=users,umask=0022 0 0</pr
 <p><code>/media/files</code> is the destination folder.</p>
 </li>
 <li>
-<p><code>uid=1000,gid=users</code> are the owners.</p>
+<p><code>uid=1000,gid=1000</code> are the owners.</p>
 </li>
 <li>
 <p><code>umask=0022</code> are the permissions.</p>
@@ -1635,18 +1646,18 @@ activated, or if the storage is not available.
 <div class="sectionbody">
 <div id="disqus_thread"></div>
 <script>
-var uuidPage = 57958;
-var disqus_config = function () {
-  this.page.url = 'ttps://alejandro-martin.github.io/debian-installation/';
-  this.page.identifier = uuidPage;
-};
+  var uuidPage = 57958;
+  var disqus_config = function () {
+    this.page.url = 'https://alejandro-martin.github.io/debian-installation/';
+    this.page.identifier = uuidPage;
+  };
 
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://debian-installation.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://debian-installation.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>

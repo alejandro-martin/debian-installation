@@ -741,6 +741,7 @@ b.conum * { color: inherit !important; }
 <li><a href="#_set_new_icons_theme">Set new icons theme</a></li>
 <li><a href="#_set_new_em_gnome_shell_em_themes">Set new <em>Gnome Shell</em> themes</a></li>
 <li><a href="#_modify_terminal_colors">Modify Terminal Colors</a></li>
+<li><a href="#_extras">Extras</a></li>
 <li><a href="#_on_em_debian_em_installation_series">On <em>Debian</em> installation series</a></li>
 <li><a href="#_comments">Comments</a></li>
 </ul>
@@ -795,7 +796,7 @@ If desired language does not appear, configure <em>locales</em> on terminal:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Go to <code>Settings &gt; Mouse &amp; Touchpad</code></p>
+<p>Go to <code>Settings &gt; Devices &gt; Mouse &amp; Touchpad</code></p>
 </li>
 <li>
 <p>Select <code>Tap to click</code></p>
@@ -892,7 +893,7 @@ Shortcut: Ctrl + Alt + T</pre>
 <div class="listingblock">
 <div class="content">
 <pre>Name: Nautilus
-Command: Nautilus
+Command: nautilus
 Shortcut: Super(windows) + E</pre>
 </div>
 </div>
@@ -975,7 +976,7 @@ files on the <code>Templates</code> folder will be available</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>sudo apt-get install ttf-freefont ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-liberation</pre>
+<pre>sudo apt-get install ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu</pre>
 </div>
 </div>
 </div>
@@ -1001,6 +1002,18 @@ Click on Gear symbol</code></p>
 <p>Active <code>Hide text</code>, configure <code>Icon Padding</code> , <code>Panel Transparency</code>, etc.</p>
 </li>
 </ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+At this version, extension <em>Gnome</em> plugin only works on <em>Firefox</em>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1087,7 +1100,7 @@ or <em>Paper</em>)</p>
 <p>Open terminal</p>
 </li>
 <li>
-<p><code>Edit &gt; Profile preferences &gt; Colors(tab)</code></p>
+<p><code>Edit &gt; Preferences &gt; Profile &gt; Colors(tab)</code></p>
 </li>
 <li>
 <p>Uncheck <code>User colors from system theme</code></p>
@@ -1096,6 +1109,21 @@ or <em>Paper</em>)</p>
 <p>Select <code>Green on black</code> on <code>Built-in schemes</code></p>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extras">Extras</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>To modify icon size on file explorer user <code>ctrl + '-'</code> or <code>ctrl + '+'</code>.</p>
+</li>
+<li>
+<p>To add a location on file menu on <em>Nautilus</em> selection the <code>add bookmark</code> icon.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>¡FIN!</p>
@@ -1125,18 +1153,18 @@ or <em>Paper</em>)</p>
 <div class="sectionbody">
 <div id="disqus_thread"></div>
 <script>
-var uuidPage = 57958;
-var disqus_config = function () {
-  this.page.url = 'ttps://alejandro-martin.github.io/debian-installation/';
-  this.page.identifier = uuidPage;
-};
+  var uuidPage = 57958;
+  var disqus_config = function () {
+    this.page.url = 'https://alejandro-martin.github.io/debian-installation/';
+    this.page.identifier = uuidPage;
+  };
 
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://debian-installation.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://debian-installation.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>

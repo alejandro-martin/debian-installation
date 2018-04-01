@@ -19,7 +19,7 @@ NOTE: If desired language does not appear, configure _locales_ on terminal:
 
 == Activate touchpad click
 
- . Go to `Settings > Mouse & Touchpad`
+ . Go to `Settings > Devices > Mouse & Touchpad`
  . Select `Tap to click`
 
 == Turn off _Blank Screen_
@@ -61,7 +61,7 @@ Shortcut: Ctrl + Alt + T
 * Add _Nautilus_(File explorer):
 ----
 Name: Nautilus
-Command: Nautilus
+Command: nautilus
 Shortcut: Super(windows) + E
 ----
 
@@ -99,7 +99,7 @@ files on the `Templates` folder will be available
 
 On terminal type:
 
- sudo apt-get install ttf-freefont ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu ttf-liberation
+ sudo apt-get install ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu
 
 == Modify Activities Bar
 
@@ -113,6 +113,8 @@ On terminal type:
 (_debian_ logo located at `/usr/share/pixmaps/debian-logo.png`)
 
 . Active `Hide text`, configure `Icon Padding` , `Panel Transparency`, etc.
+
+NOTE: At this version, extension _Gnome_ plugin only works on _Firefox_.
 
 == Set new icons theme
 
@@ -148,10 +150,15 @@ Some themes packages:
 
 == Modify Terminal Colors
 
- . Open terminal
- . `Edit > Profile preferences > Colors(tab)`
- . Uncheck `User colors from system theme`
- . Select `Green on black` on `Built-in schemes`
+. Open terminal
+. `Edit > Preferences > Profile > Colors(tab)`
+. Uncheck `User colors from system theme`
+. Select `Green on black` on `Built-in schemes`
+
+== Extras
+
+* To modify icon size on file explorer user `ctrl + '-'` or `ctrl + '+'`.
+* To add a location on file menu on _Nautilus_ selection the `add bookmark` icon.
 
 ¡FIN!
 
