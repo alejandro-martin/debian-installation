@@ -142,7 +142,7 @@ TIP: Go to _Settings_ > _Themes_ to change user theme.
 == Extras
 
 If you want to configure multiple _SSH_ keys for _Git_ check
-https://gist.github.com/alejandro-martin/9957fd0f55552f6f8f35602cb16dc253[this guide]
+https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610[this guide]
 
 ¡FIN!
 
