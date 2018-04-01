@@ -5,9 +5,10 @@
 :toc: left
 :icons: font
 :last-update-label!:
+:linkattrs:
 
 * The used release is _Debian Buster_.
-* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github]
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github, window="_blank"]
 
 Post-installation guide after a minimal _Debian_ installation with _Gnome_.
 

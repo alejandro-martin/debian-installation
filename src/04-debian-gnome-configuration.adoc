@@ -5,9 +5,10 @@
 :toc: left
 :icons: font
 :last-update-label!:
+:linkattrs:
 
 * The used release is _Debian Buster_.
-* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github]
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github, window="_blank"]
 
 == Set keyboard language
 
@@ -103,8 +104,8 @@ On terminal type:
 
 == Modify Activities Bar
 
- . Install `Activities Configurator` extension from
- https://extensions.gnome.org/extension/358/activities-configurator/
+ . Install `Activities Configurator`
+ https://extensions.gnome.org/extension/358/activities-configurator/[extension, window="_blank"]
 
  . To Configure extension, open _Tweak Tool_: `Extensions(tab) > Activities Configurator >
  Click on Gear symbol`
@@ -129,9 +130,9 @@ NOTE: At this version, extension _Gnome_ plugin only works on _Firefox_.
 
 Some icons package:
 
- * _Luv icon theme_: https://github.com/Nitrux/luv-icon-theme
- * _Flattr icons_: https://github.com/Nitrux/luv-icon-theme/releases/tag/v1.3
- * _Paper theme_: https://snwh.org/paper
+ * https://github.com/Nitrux/luv-icon-theme[Luv icon theme, window="_blank"]
+ * https://github.com/Nitrux/luv-icon-theme/releases/tag/v1.3[Flattr icons, window="_blank"]
+ * https://snwh.org/paper[Paper theme, window="_blank"]
 
 == Set new _Gnome Shell_ themes
 
@@ -146,7 +147,7 @@ Some icons package:
 
 Some themes packages:
 
- * _Minimoka Gnome Shell_: https://github.com/ohanhi/minimoka-gnome-shell
+ * https://github.com/ohanhi/minimoka-gnome-shell[Minimoka Gnome Shell, window="_blank"]
 
 == Modify Terminal Colors
 

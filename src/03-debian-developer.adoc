@@ -5,9 +5,10 @@
 :toc: left
 :icons: font
 :last-update-label!:
+:linkattrs:
 
 * The used release is _Debian Buster_.
-* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github]
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github, window="_blank"]
 
 == Install _Java_
 
@@ -142,7 +143,7 @@ TIP: Go to _Settings_ > _Themes_ to change user theme.
 == Extras
 
 If you want to configure multiple _SSH_ keys for _Git_ check
-https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610[this guide]
+https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610[this guide, window="_blank"]
 
 ¡FIN!
 

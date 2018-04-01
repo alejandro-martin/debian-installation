@@ -5,9 +5,10 @@
 :toc: left
 :icons: font
 :last-update-label!:
+:linkattrs:
 
 * The used release is _Debian Buster_.
-* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github]
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github, window="_blank"]
 
 Guide for a minimal _Debian_ installation with _Gnome_ desktop.
 
@@ -115,7 +116,7 @@ IMPORTANT: This step is only needed if the _Debian Testing_ release is wanted.
 
 NOTE: This is for a _Debian Testing_, the word `testing` could be replaced with
 `stable` or `unstable`. For more information go to
-https://www.debian.org/releases/[_Debian Releases_ website].
+https://www.debian.org/releases/[_Debian Releases_ website, window="_blank"].
 
 == Update & Upgrade
 
