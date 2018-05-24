@@ -160,6 +160,7 @@ Some themes packages:
 
 * To modify icon size on file explorer user `ctrl + '-'` or `ctrl + '+'`.
 * To add a location on file menu on _Nautilus_ selection the `add bookmark` icon.
+* in Gnome 3.26 apps tray dissapear, so install TopIcons[https://extensions.gnome.org/extension/1031/topicons/] extension to see minimized apps.
 
 ¡FIN!
 
