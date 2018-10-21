@@ -1,5 +1,5 @@
 
-= _Debian_ minimal installation with _Gnome_
+= _Debian_ basic installation with _Gnome_
 ☣ By Alejandro Martin
 :docinfo: shared
 :toc: left
@@ -10,7 +10,7 @@
 * The used release is _Debian Buster_.
 * Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github, window="_blank"]
 
-Guide for a minimal _Debian_ installation with _Gnome_ desktop.
+Guide for a basic _Debian_ installation with _Gnome_ desktop.
 
 NOTE: All the commands have to be run as superuser.
 
