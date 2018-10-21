@@ -277,7 +277,7 @@ where:
 
 . Type:
 +
- sudo apt-get install lm-sensors youtube-dl screenfetch xclip
+ sudo apt-get install lm-sensors youtube-dl screenfetch xclip gnome-nettool rsync
 +
 where:
 +
@@ -285,6 +285,8 @@ where:
 * `youtube-dl`: download youtube(and other pages) videos.
 * `screenfetch`: print system information.
 * `xclip`: copy information to clipboard on terminal.
+* `gnome-nettool`: network tools such as _ifconfig_, _ping_, _traceroute_ ...
+* `rsync`: tool for sync files between hosts, devices.
 +
 . Some leisure commands
 +
