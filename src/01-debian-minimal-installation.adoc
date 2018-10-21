@@ -31,7 +31,7 @@ which it is going to print if the system was booted in _UEFI_ or _Legacy_ mode.
 Return to installation with (`ctrl+alt+f1`).
 +
 . Follow the installation steps and at section _Software Selection_,
-*ONLY* tick *_Standard System Utilities_* [*_Utilidades estándar del sistema_*]
+*ONLY* tick *_Standard System Utilities_*
 for a minimal system installation.
 . Reboot the system and remove usb.
 
@@ -103,18 +103,18 @@ IMPORTANT: This step is only needed if the _Debian Testing_ release is wanted.
 
 . Save and quit.
 
-. It may end up like this:
+. It may end up like this(replace `MIRROR` with you region):
 +
 .sources.list
 ----
- deb http://ftp.mx.debian.org/debian/ testing main contrib non-free
- deb-src http://ftp.mx.debian.org/debian/ testing main contrib non-free
+ deb http://ftp.MIRROR.debian.org/debian/ testing main contrib non-free
+ deb-src http://ftp.MIRROR.debian.org/debian/ testing main contrib non-free
 
  deb http://security.debian.org/ testing/updates main contrib non-free
  deb-src http://security.debian.org/ testing/updates main contrib non-free
 
- deb http://ftp.mx.debian.org/debian/ testing-updates main contrib non-free
- deb-src http://ftp.mx.debian.org/debian/ testing-updates main contrib non-free
+ deb http://ftp.MIRROR.debian.org/debian/ testing-updates main contrib non-free
+ deb-src http://ftp.MIRROR.debian.org/debian/ testing-updates main contrib non-free
 ----
 +
 NOTE: This is for a _Debian Testing_, the word `testing` could be replaced with
@@ -131,8 +131,8 @@ https://www.debian.org/releases/[_Debian Releases_ website, window="_blank"].
 # ... previous sources ...
 
 # backports
-deb http://ftp.mx.debian.org/debian/ stretch-backports main contrib non-free
-deb-src http://ftp.mx.debian.org/debian/ stretch-backports main contrib non-free
+deb http://ftp.MIRROR.debian.org/debian/ stretch-backports main contrib non-free
+deb-src http://ftp.MIRROR.debian.org/debian/ stretch-backports main contrib non-free
 ----
 +
 Important, to install any package from the backports, it has to be installed with:
