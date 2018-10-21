@@ -935,7 +935,11 @@ the command, the password has to be inmediately typed:</p>
 after <code>main</code> in each repository line</p>
 </li>
 <li>
-<p>Add testing repositories replacing <code>stable</code> for <code>testing</code> on each line.</p>
+<p>Adjust mirror repository on each url base on your location ,
+look for it at the <em>Debian</em> <a href="https://www.debian.org/mirror/list" target="_blank" rel="noopener"><em>Mirrors</em> website</a>.</p>
+</li>
+<li>
+<p>[Optional] Add testing repositories replacing <code>stable</code> for <code>testing</code> on each line.</p>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -983,15 +987,15 @@ This is for a <em>Debian Testing</em>, the word <code>testing</code> could be re
 </div>
 </li>
 <li>
-<p>[Optional step] if you keep stable version and you want newer packages
-(from testing distribution, mostly) you could add the <em>backports</em> repositories.</p>
+<p>[Optional] If you keep stable version and you want newer packages
+(from testing distribution, mostly) you could append the <em>backports</em> repositories.</p>
 <div class="listingblock">
 <div class="title">sources.list[fragment]</div>
 <div class="content">
 <pre># ... previous sources ...
 
-deb http://ftp.mx.debian.org/debian/ stretch-backports main contrib non-free
 # backports
+deb http://ftp.mx.debian.org/debian/ stretch-backports main contrib non-free
 deb-src http://ftp.mx.debian.org/debian/ stretch-backports main contrib non-free</pre>
 </div>
 </div>

@@ -94,7 +94,10 @@ the command, the password has to be inmediately typed:
 . Add `contrib` and `non-free` packages, appending `contrib non-free`
 after `main` in each repository line
 
-. Add testing repositories replacing `stable` for `testing` on each line.
+. Adjust mirror repository on each url base on your location ,
+look for it at the _Debian_ https://www.debian.org/mirror/list[_Mirrors_ website, window="_blank"].
+
+. [Optional] Add testing repositories replacing `stable` for `testing` on each line.
 +
 IMPORTANT: This step is only needed if the _Debian Testing_ release is wanted.
 
@@ -119,16 +122,16 @@ NOTE: This is for a _Debian Testing_, the word `testing` could be replaced with
 https://www.debian.org/releases/[_Debian Releases_ website, window="_blank"].
 
 +
-. [Optional step] if you keep stable version and you want newer packages
-(from testing distribution, mostly) you could add the _backports_ repositories.
+. [Optional] If you keep stable version and you want newer packages
+(from testing distribution, mostly) you could append the _backports_ repositories.
 +
 .sources.list[fragment]
 ----
 
 # ... previous sources ...
 
-deb http://ftp.mx.debian.org/debian/ stretch-backports main contrib non-free
 # backports
+deb http://ftp.mx.debian.org/debian/ stretch-backports main contrib non-free
 deb-src http://ftp.mx.debian.org/debian/ stretch-backports main contrib non-free
 ----
 +
