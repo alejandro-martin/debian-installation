@@ -805,7 +805,7 @@ Return to installation with (<code>ctrl+alt+f1</code>).</p>
 </li>
 <li>
 <p>Follow the installation steps and at section <em>Software Selection</em>,
-<strong>ONLY</strong> tick <strong><em>Standard System Utilities</em></strong> [<strong><em>Utilidades estándar del sistema</em></strong>]
+<strong>ONLY</strong> tick <strong><em>Standard System Utilities</em></strong>
 for a minimal system installation.</p>
 </li>
 <li>
@@ -957,18 +957,18 @@ This step is only needed if the <em>Debian Testing</em> release is wanted.
 <p>Save and quit.</p>
 </li>
 <li>
-<p>It may end up like this:</p>
+<p>It may end up like this(replace <code>MIRROR</code> with you region):</p>
 <div class="listingblock">
 <div class="title">sources.list</div>
 <div class="content">
-<pre> deb http://ftp.mx.debian.org/debian/ testing main contrib non-free
- deb-src http://ftp.mx.debian.org/debian/ testing main contrib non-free
+<pre> deb http://ftp.MIRROR.debian.org/debian/ testing main contrib non-free
+ deb-src http://ftp.MIRROR.debian.org/debian/ testing main contrib non-free
 
  deb http://security.debian.org/ testing/updates main contrib non-free
  deb-src http://security.debian.org/ testing/updates main contrib non-free
 
- deb http://ftp.mx.debian.org/debian/ testing-updates main contrib non-free
- deb-src http://ftp.mx.debian.org/debian/ testing-updates main contrib non-free</pre>
+ deb http://ftp.MIRROR.debian.org/debian/ testing-updates main contrib non-free
+ deb-src http://ftp.MIRROR.debian.org/debian/ testing-updates main contrib non-free</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -995,8 +995,8 @@ This is for a <em>Debian Testing</em>, the word <code>testing</code> could be re
 <pre># ... previous sources ...
 
 # backports
-deb http://ftp.mx.debian.org/debian/ stretch-backports main contrib non-free
-deb-src http://ftp.mx.debian.org/debian/ stretch-backports main contrib non-free</pre>
+deb http://ftp.MIRROR.debian.org/debian/ stretch-backports main contrib non-free
+deb-src http://ftp.MIRROR.debian.org/debian/ stretch-backports main contrib non-free</pre>
 </div>
 </div>
 <div class="paragraph">
