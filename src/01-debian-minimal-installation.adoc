@@ -229,8 +229,6 @@ from their own websites.
 IMPORTANT: After installation it should verify that _Debian_ partition is
 the primary boot drive in order to run the grub for multi-booting systems.
 
-¡FIN!
-
 == On _Debian_ installation series
 
 * link:./index-02.html[02 - Debian Post Installation]

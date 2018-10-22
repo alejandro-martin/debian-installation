@@ -145,8 +145,6 @@ TIP: Go to _Settings_ > _Themes_ to change user theme.
 If you want to configure multiple _SSH_ keys for _Git_ check
 https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610[this guide, window="_blank"]
 
-¡FIN!
-
 == On _Debian_ installation series
 
 * link:./index.html[01 - Debian Minimal Installation]

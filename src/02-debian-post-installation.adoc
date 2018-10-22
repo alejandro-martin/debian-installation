@@ -395,8 +395,6 @@ CAUTION: If partition cannot be mounted, system won't boot, this happens for
 instance when the partition is part of windows and it has _fast boot_ option
 activated, or if the storage is not available.
 
-¡FIN!
-
 == On _Debian_ installation series
 
 * link:./index.html[01 - Debian Minimal Installation]
