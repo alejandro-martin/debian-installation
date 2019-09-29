@@ -1,26 +1,27 @@
 
-= _Debian_ Development Installation
+= _Debian_ 9 Development Installation
 ☣ By Alejandro Martin
 :docinfo: shared
 :toc: left
 :icons: font
 :last-update-label!:
 :linkattrs:
+:include-dir: include/
 
-* The used release is _Debian Buster_.
+* The used release is _Debian 9 - Stretch_
 * Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github, window="_blank"]
 
 == Install _Java_
 
-_SDKMAN!_ will be used for installing _JDK_. With this software many versions
-(_open-jdk 8_, _open-jdk 9_, _java oracle 8_, ...) could be installed and managed easily.
+_SDKMAN!_ will be used for installing _JDK_. Many versions of java(_open-jdk 8_, _open-jdk 11_, _java oracle 8_, ...) could be installed and managed easily.
 
 === Install _SDKMAN!_
- . Enter and follow instructions:
+
+. Type this command and follow the instructions:
 
  curl -s "https://get.sdkman.io" | bash
 
- . Run:
+. Run:
 
  source "$HOME/.sdkman/bin/sdkman-init.sh"
 
@@ -30,37 +31,37 @@ _SDKMAN!_ will be used for installing _JDK_. With this software many versions
 
 === Install _JDK_
 
- . List all _JDK_ available:
+. List all _JDK_ available:
 
   sdk list java
 
 TIP: You can choose free _Java_ implementations such as _OpenJDK_ or _ZULU_.
 
-. Install desired _JDK_ and install:
+. Install desired _JDK_:
 
-  sdk install java 8u161-oracle
+  sdk install java 8.0.212-amzn
 
-TIP: other _JVM_ languages or software could be installed with _SDKMAN!_ as _Kotlin_,
+TIP: other _JVM_ languages or tools could be installed with _SDKMAN!_ as _Kotlin_,
 _Scala_, _Gradle_, _Maven_ and so on
 
 === Traditional _OpenJDK_ installation
 
 But if traditional _OpenJDK_ installation is still preferred.
 
- . Install _OpenJdk_ _JDK_ and _JVM_ Java 8 :
+. Install _OpenJdk_ _JDK_ and _JVM_ Java 8 :
 
  sudo apt-get install openjdk-8-jdk openjdk-8-jre
 
 
 == Install _Atom_
 
- . Get _.deb_ package from the _Atom_ website
+. Get _.deb_ package from the _Atom_ website
 
- . Go to download location and install package:
+. Go to download location and install package:
 
  sudo dpkg -i atom-amd64.deb
 
- . If there are missing dependencies, install them with:
+. If there are missing dependencies, install them with:
 
   sudo apt-get install -f
 
@@ -83,41 +84,41 @@ NOTE: To install packages and themes go to `Edit > Preferences > Install`
 NOTE: Based on _JDK_ installation, choose whether to install to all user or only
 current user
 
- . Get _.deb_ package from the _Jetbrains_ website
+. Get _.deb_ package from the _Jetbrains_ website
 
- . Go to download location and extract files:
+. Go to download location and extract files:
 
  tar -xvzf ideaIU-2017.3.3.tar.gz
 
- . Move extracted folder to `opt` folder:
+. Move extracted folder to `opt` folder:
 
  sudo mv idea-IU-173.4301.25/ /opt/
 
- . Execute binary file of the IDE and follow instructions to install:
+. Execute binary file of the _IDE_ and follow instructions to install:
 
  /opt/idea-IU-173.4301.25/bin/idea.sh
 
- . If it is necesary the _jdk_ installation folder must be indicated.
+. You shall indicate _jdk_ installation folder.
 
 == Install _Postman_
 
-To test apis.
+To test rest apis.
 
- . Get sources from the _Postman_ page
+. Get sources from the _Postman_ page
 
- . Go to download location and extract files:
+. Go to download location and extract files:
 
  tar -xvzf Postman-linux-x64-5.5.2.tar.gz
 
- . Move extracted folder to `opt` folder:
+. Move extracted folder to `opt` folder:
 
  sudo mv Postman /opt/
 
- . Create a symbolic link for execute the software from terminal
+. Create a symbolic link for execute the software from terminal
 
  sudo ln -s /opt/Postman/Postman /usr/bin/postman
 
- . Create a _.desktop_ file in order to launch the app from the applications menu,
+. Create a _.desktop_ file in order to launch the app from the applications menu,
  with the name of _postman.desktop_
 +
  sudo vim /usr/share/applications/postman.desktop
@@ -140,15 +141,15 @@ save and exit.
 
 TIP: Go to _Settings_ > _Themes_ to change user theme.
 
-== Extras
+== Configure multiple SSH keys for git [Optional]
 
 If you want to configure multiple _SSH_ keys for _Git_ check
 https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610[this guide, window="_blank"]
 
 == On _Debian_ installation series
 
-* link:./index.html[01 - Debian Minimal Installation]
-* link:./index-02.html[02 - Debian Post Installation]
-* link:./index-04.html[04 - Debian Gnome Configuration]
+* link:./debian-9-01.html[01 - Debian Minimal Installation]
+* link:./debian-9-02.html[02 - Debian Post Installation]
+* link:./debian-9-04.html[04 - Debian Gnome Configuration]
 
-include::disqus.adoc[]
+include::{include-dir}/disqus.adoc[]

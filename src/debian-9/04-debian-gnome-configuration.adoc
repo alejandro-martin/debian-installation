@@ -1,13 +1,14 @@
 
-= _Debian Gnome_ configuration
+= _Gnome_ configuration for _Debian_ 9
 ☣ By Alejandro Martin
 :docinfo: shared
 :toc: left
 :icons: font
 :last-update-label!:
 :linkattrs:
+:include-dir: include/
 
-* The used release is _Debian Buster_.
+* The used release is _Debian 9 - Stretch_
 * Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github, window="_blank"]
 
 == Set keyboard language
@@ -33,7 +34,7 @@ NOTE: If desired language does not appear, configure _locales_ on terminal:
 
 Tool for extra gnome configuration.
 
-. Install _Gnome Tweak Tool_(usually is already installed):
+. Install _Gnome Tweak Tool_(it's usually installed):
 
  sudo aptitude install gnome-tweak-tool
 
@@ -45,12 +46,12 @@ where you can:
 
  * On `Extension` tab active: `Alternatetab`, `User Themes`, `Launch new instance`
 
- * On `Windows` active `maximize` and `minimize` buttons of title bar
+ * On `Windows` active `maximize` and `minimize` buttons for title bar
 
 == Shortcuts
 
 Go to `Settings > Keyboard` and click at the end of the window the symbol `+`
-to add a custom shortcut:
+to add a custom shortcuts, examples:
 
  * Add _Gnome terminal_:
 ----
@@ -115,7 +116,7 @@ On terminal type:
 
 . Active `Hide text`, configure `Icon Padding` , `Panel Transparency`, etc.
 
-NOTE: At this version, extension _Gnome_ plugin only works on _Firefox_.
+NOTE: With this _Debian_ version, _Gnome_ extension and plugin only works on _Firefox_.
 
 == Set new icons theme
 
@@ -132,7 +133,7 @@ Some icons package:
 
  * https://github.com/Nitrux/luv-icon-theme[Luv icon theme, window="_blank"]
  * https://github.com/Nitrux/luv-icon-theme/releases/tag/v1.3[Flattr icons, window="_blank"]
- * https://github.com/numixproject/numix-gtk-theme
+ * https://github.com/numixproject/numix-gtk-theme[Numix]
  * https://snwh.org/paper[Paper theme, window="_blank"]
 
 == Set new _Gnome Shell_ themes
@@ -149,6 +150,7 @@ Some icons package:
 Some themes packages:
 
  * https://github.com/ohanhi/minimoka-gnome-shell[Minimoka Gnome Shell, window="_blank"]
+ * https://github.com/horst3180/arc-theme[Arc-theme]
 
 == Modify Terminal Colors
 
@@ -157,16 +159,19 @@ Some themes packages:
 . Uncheck `User colors from system theme`
 . Select `Green on black` on `Built-in schemes`
 
+== Background Apps on Activities bar
+
+In _Gnome_ 3.26 _Apps tray_ is gone, so install https://extensions.gnome.org/extension/1031/topicons/[Top icons] extension to see the apps running on background.
+
 == Extras
 
 * To modify icon size on file explorer user `ctrl + '-'` or `ctrl + '+'`.
 * To add a location on file menu on _Nautilus_ selection the `add bookmark` icon.
-* in Gnome 3.26 apps tray dissapear, so install TopIcons[https://extensions.gnome.org/extension/1031/topicons/] extension to see minimized apps.
 
 == On _Debian_ installation series
 
-* link:./index.html[01 - Debian Minimal Installation]
-* link:./index-02.html[02 - Debian Post Installation]
-* link:./index-03.html[03 - Debian Developer Installation]
+* link:./debian-9-01.html[01 - Debian Minimal Installation]
+* link:./debian-9-02.html[02 - Debian Post Installation]
+* link:./debian-9-03.html[03 - Debian Developer Installation]
 
-include::disqus.adoc[]
+include::{include-dir}/disqus.adoc[]

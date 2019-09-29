@@ -1,0 +1,123 @@
+
+= _Debian_ 10 Developer Tools Installation
+☣ By Alejandro Martin
+:docinfo: shared
+:toc: left
+:icons: font
+:last-update-label!:
+:linkattrs:
+:include-dir: include/
+
+* The used release is _Debian 10 - Buster_
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github, window="_blank"]
+
+== Install _Java_
+
+_SDKMAN!_ will be used for installing _JDK_. Many versions of java(_open-jdk 8_, _open-jdk 11_, _java oracle 8_, ...) could be installed and managed easily.
+
+=== Install _SDKMAN!_
+
+. Type this command and follow the instructions:
+
+ curl -s "https://get.sdkman.io" | bash
+
+. Run:
+
+ source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+. To check if the installation succeeded:
+
+ sdk version
+
+=== Install _JDK_
+
+. List all _JDK_ available:
+
+  sdk list java
+
+TIP: You can choose free _Java_ implementations such as _OpenJDK_ or _ZULU_.
+
+. Install desired _JDK_:
+
+  sdk install 11.0.4.hs-adpt
+
+TIP: other _JVM_ languages or tools could be installed with _SDKMAN!_ as _Kotlin_,
+_Scala_, _Gradle_, _Maven_ and so on
+
+=== Traditional _OpenJDK_ installation
+
+But if traditional _OpenJDK_ installation is still preferred.
+
+. Install _OpenJdk_ _JDK_ and _JVM_ Java 11 :
+
+ sudo apt-get install openjdk-11-jdk openjdk-11-jre
+
+== Install _IntelliJ Idea_
+
+NOTE: Based on _JDK_ installation, choose whether to install to all user or only
+current user
+
+. Get _.deb_ package from the _Jetbrains_ website
+
+. Go to download location and extract files:
+
+ tar -xvzf ideaIU-2017.3.3.tar.gz
+
+. Move extracted folder to `opt` folder:
+
+ sudo mv idea-IU-173.4301.25/ /opt/
+
+. Execute binary file of the _IDE_ and follow instructions to install:
+
+ /opt/idea-IU-173.4301.25/bin/idea.sh
+
+. You shall indicate _jdk_ installation folder.
+
+== Install _Visual Studio Code_
+
+. Install it with _Snap_:
+
+ sudo snap install code --classic
+
+== Install Other packages
+
+Install them with _Snap_[Optional]:
+
+ sudo snap install atom --classic
+ sudo snap install sublime-text --classic
+ sudo snap install node --channel=12/stable --classic
+ sudo snap install hugo --channel=extended/stable
+ sudo snap install ao
+
+where:
+
+* `ao`: Third party GUI for _Microsoft Todo_
+* `atom`: Code editor create by _Github_
+* `sublime-text`: Code editor with a good performance.
+* `node` : https://nodejs.org/en/[_NodeJS_]
+* `hugo` : Static generator tool with _Sass_ support.
+
+== Other dev tools [Optional]
+
+* Install Other tools
++
+ sudo flatpak install flathub io.dbeaver.DBeaverCommunity
+ sudo flatpak install flathub com.getpostman.Postman
++
+where:
++
+* `DBeaver` is a database administration tool
+* `Postman` is a software to create web request, tests apis, Tip: Go to _Settings_ > _Themes_ to change user theme.
+
+== Configure multiple SSH keys for git [Optional]
+
+If you want to configure multiple _SSH_ keys for _Git_ check
+https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610[this guide, window="_blank"]
+
+== On _Debian_ installation series
+
+* link:./debian-10-01.html[01 - Debian Minimal Installation]
+* link:./debian-10-02.html[02 - Debian Post Installation]
+* link:./debian-10-04.html[04 - Debian Gnome Configuration]
+
+include::{include-dir}/disqus.adoc[]

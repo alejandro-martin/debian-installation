@@ -1,0 +1,15 @@
+:last-update-label!:
+++++
+<style>
+#version-slc {
+  float: right;
+  width: 20%;  
+}
+</style>
+
+<select id="version-slc" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+  <option value="">Debian version</option>
+  <option value="debian-10-01.html">Debian 10 - Buster</option>
+  <option value="debian-9-01.html">Debian 9 - Stretch</option>
+</select>
+++++

@@ -1,18 +1,19 @@
 
-= _Debian_ Post-installation Guide
+= _Debian_ 10 Post-Installation Guide
 ☣ By Alejandro Martin
 :docinfo: shared
 :toc: left
 :icons: font
 :last-update-label!:
 :linkattrs:
+:include-dir: include/
 
-* The used release is _Debian Buster_.
+* The used release is _Debian 10 - Buster_
 * Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github, window="_blank"]
 
-Post-installation guide after a minimal _Debian_ installation with _Gnome_.
+Post-installation guide after _Debian_ installation with _Gnome_.
 
-IMPORTANT: It is supposed main user has superuser privileges.
+IMPORTANT: It is supposed that your user has superuser privileges.
 
 <<<
 
@@ -20,33 +21,33 @@ IMPORTANT: It is supposed main user has superuser privileges.
 
 . Install basic compression and decompression packages:
 
- sudo apt-get install rar unrar zip unzip p7zip-full p7zip-rar bzip2 lzip lzop lbzip2 lrzip plzip
+ sudo apt install rar unrar zip unzip p7zip-full p7zip-rar bzip2 lzip lzop lbzip2 lrzip plzip
 
 . _gui_ tool for compression and decompression:
 
- sudo apt-get install file-roller
+ sudo apt install file-roller
 
 == Install package managers
 
 To manage packages installation, updates and removals.
 
-. Install the following packages:
+. Install:
 
- sudo apt-get install aptitude synaptic gdebi
+ sudo apt install aptitude synaptic
 +
 where:
 +
- * `aptitude`: interface for installing packages.
- * `synaptic package manager`: _gui_ for package management.
- * `gdebi`: _gui_ to install _deb_ packages.
+ * `aptitude`: interface for installing distribution packages.
+ * `synaptic package manager`: _gui_ for distribution package management [Optional].
+ * `gdebi`: _gui_ to install _deb_ packages [Optional].
 
 == Install basic developer/compilation libraries and tools
 
-NOTE: No only for development but to compile and install other software.
+NOTE: Not only for development but to compile and install other packages.
 
 . On terminal type:
 +
- sudo apt-get install build-essential cmake automake autoconf git git-core wget gdb curl
+ sudo apt install build-essential cmake automake autoconf git git-core wget gdb curl
 +
 where:
 +
@@ -67,7 +68,7 @@ where:
 +
 . Install linux headers for compilation tasks:
 
- sudo apt-get install linux-headers-$(uname -r)
+ sudo apt install linux-headers-$(uname -r)
 +
 . Install _Gtk_ basic graphic library(avoid some _Gtk_ errors):
 
@@ -77,21 +78,19 @@ where:
 
 Install _JRE_ for running java applications.
 
-NOTE: For developers, this step can be skipped at this moment as it is going
-to be included later with _JDK_ installment at the
-link:./index-03.html[Debian Developer Installation guide].
+NOTE: For developers: _JDK_ installation could be checked at link:./debian-10-03.html[[Debian Developer Tools]]. Although is recommended to also install the _JRE_ as distribution package.
 
-. Install OpenJDK Java 8:
+. Install OpenJDK Java 11:
 
- sudo apt-get install openjdk-8-jre
+ sudo apt install openjdk-11-jre
 
-== Install _Vim_ [Optional]
+== Install _Vim_ ["Optional"]
 
 Advanced terminal text editor.
 
 . On terminal type:
 
- sudo apt-get install vim
+ sudo apt install vim
 
 . Modify vim configuration file:
 +
@@ -104,7 +103,6 @@ and append some custom options(syntax on and auto indent):
 syntax on
 set smartindent
 " set number
-" ...
 ----
 +
 . Save and exit.
@@ -128,7 +126,19 @@ where `\u` is the username and `\W` is the last fragment of the current working 
 +
 . Save and exit.
 
+== Power up your terminal, Install _ZSH_ [Optional but recommendable]
+
+. Install _ZSH_ terminal, this is an enhanced shell, for more information look https://www.howtoforge.com/tutorial/how-to-setup-zsh-and-oh-my-zsh-on-linux/[here]
+
+ sudo apt install zsh
+
+. Install _Oh My ZSH_ with, ,or look for the installation on its https://ohmyz.sh/[website]:
+
+ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 == Choose default operating system at grub and show boot info at startup [Optional]
+
+If you have a multi _SO_ boot, customize the grub.
 
 . Open and modify grub:
 
@@ -163,7 +173,7 @@ Repository for installing updated versions of multimedia applications
 (E.g. vlc, audacious, handbrak, kdenlive, audio and video codecs)
 
 CAUTION: Sometimes this repository can break other dependencies. It is only
-recommended if you want the newest version of the mentioned applications.
+recommended if you want the newest version of the mentioned applications. I don't use this anymore.
 
 . Edit repositories file
 
@@ -173,7 +183,7 @@ recommended if you want the newest version of the mentioned applications.
 +
 ----
 # deb-multimedia
-# apt-get install deb-multimedia-keyring
+# apt install deb-multimedia-keyring
 deb http://www.deb-multimedia.org testing main non-free
 ----
 +
@@ -191,7 +201,7 @@ deb http://www.deb-multimedia.org testing main non-free
  deb-src http://ftp.mx.debian.org/debian/ testing-updates main contrib non-free
 
  # deb-multimedia
- # apt-get install deb-multimedia-keyring
+ # apt install deb-multimedia-keyring
  deb http://www.deb-multimedia.org testing main non-free
 ----
 +
@@ -201,16 +211,16 @@ NOTE: The repositories are based on a _Debian Testing_ release.
 
 . Update packages (this will throw an error which is going to be solved in the next step):
 
- sudo apt-get update
+ sudo apt update
 
 . Install repository keyring
 
- sudo apt-get install deb-multimedia-keyring
- sudo apt-get update
+ sudo apt install deb-multimedia-keyring
+ sudo apt update
 
 . Upgrade packages:
 
- sudo apt-get upgrade
+ sudo apt upgrade
 
 == Install basic software
 
@@ -224,23 +234,23 @@ NOTE: The repositories are based on a _Debian Testing_ release.
 
 . If there are missing dependencies, install them with:
 
- sudo apt-get install -f
+ sudo apt install -f
 
 === Install _Libreoffice_
 
 . Install office suite software and _Spanish_ language:
 
- sudo apt-get install libreoffice libreoffice-l10n-es
+ sudo apt install libreoffice libreoffice-l10n-es
 
 . If the _gui_ is bad-looking, install theme support:
 
- sudo apt-get install libreoffice-style-tango libreoffice-gtk3
+ sudo apt install libreoffice-style-tango libreoffice-gtk3
 
 === Install some basic gui tools
 
 . Type:
 +
- sudo apt-get install gedit evince gnome-disk-utility gnome-screenshot rhythmbox vlc vlc-l10n kolourpaint4
+ sudo apt install gedit evince gnome-disk-utility gnome-screenshot rhythmbox vlc vlc-l10n kolourpaint4
 +
 where:
 
@@ -254,7 +264,7 @@ where:
 
 . Other packages[Optional]:
 +
- sudo apt-get install gparted brasero transmission gnome-sound-recorder meld bleachbit
+ sudo apt install gparted brasero transmission gnome-sound-recorder meld bleachbit
 +
 where:
 
@@ -277,38 +287,39 @@ where:
 
 . Type:
 +
- sudo apt-get install lm-sensors youtube-dl screenfetch xclip gnome-nettool rsync
+ sudo apt install tree lm-sensors youtube-dl screenfetch xclip net-tools rsync
 +
 where:
 +
+* `tree`: produces a depth indented listing of files and folders.
 * `lm-sensors`: Check processor temperatures. Type `sensors`.
 * `youtube-dl`: download youtube(and other pages) videos.
 * `screenfetch`: print system information.
 * `xclip`: copy information to clipboard on terminal.
-* `gnome-nettool`: network tools such as _ifconfig_, _ping_, _traceroute_ ...
+* `net-tools`: network tools such as _ifconfig_, _ping_, _traceroute_ ...
 * `rsync`: tool for sync files between hosts, devices.
 +
-. Some leisure commands
+. Some leisure commands [very optional]
 +
- sudo apt-get install cmatrix rig moria cowsay fortune
+ sudo apt install cmatrix rig moria cowsay
 +
 where:
 +
 * `cmatrix`: simulates the display from "`The Matrix`".
 * `rig`: generate random identities.
 * `moria`: _RPG_ adventure game on terminal.
-* `fortune`: random sentences.
 * `cowsay`: ascii cow saying given text. You can pipe `fortune | cowsay`.
 * `libaa-bin`: use command `aafire` to show a fire.
 * `sl`: ascii train animation.
 * `xcowsay`: graphic cow saying given text.
+* `fortune`: random sentences.
 * `bb`: visual demo for terminal.
 
 === Install _Asciidoctor_ [Optional]
 
 . Compiler for creating _Asciidoctor_ documents:
 
- sudo apt-get install asciidoctor
+ sudo apt install asciidoctor
 
 . To create _Asciidoctor_ files to _PDF_:
 
@@ -318,17 +329,117 @@ where:
 
 . Software to manage ebooks and sync with e-reader.
 
- sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
+ sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
++
+or visit their https://calibre-ebook.com/download_linux[website, window="_blank"]
+
+== Install more software [Optional]
+
+For easy install software that may not be at the _OS_ repositories, you can install more app distribution software. The advantages of these ones is the simple installation and the automatically updates.
+
+Actually there are two big ones https://flatpak.org[_Flatpak_] or https://snapcraft.io/store[_Snacraft_],
+although I prefer to use *_Flatpak_* for almost any common app since I found that the packages are first updated here, but! for _IDE's_, _code editors_ and some development software I rather use _Snapcraft_ since it has a better native integration to use the terminal or compilers.
+
+=== Install _Flatpak_
+
+For easy install software that may not be at the _OS_ repositories, you can install https://flatpak.org[_Flatpak_] an app distribution software:
+
+. Install main package:
+
+ sudo apt install flatpak
+
+. Install the Software Flatpak plugin:
+
+ sudo apt install gnome-software-plugin-flatpak
+
+. Add the Flathub repository, the https://flathub.org/home[repository] where the apps could be uploaded:
+
+ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+. A reboot may be needed.
+
+ sudo reboot
+
+. Some examples:
+
+* Install https://slack.com/[_Slack_]:
+
+ sudo flatpak install flathub com.slack.Slack
+
+* Install https://www.skype.com/en/[_Skype_]:
+
+ sudo flatpak install flathub com.skype.Client
+
+* Install https://discordapp.com[_Discord_]:
+
+ sudo flatpak install flathub com.discordapp.Discord
+
+=== Install _Snapcraft_
+
+Install _Snapcraft_:
+
+ sudo apt install snapd
+
+This will be used on the link:./debian-10-03.html[Debian Developer Tools]
+
+== Install others _deb_ packages:
+
+If there are software that you could only find on a _deb_ package, you could install like this:
+
+ sudo dpkg -i package.deb
+
+. If there are missing dependencies, install them with:
+
+ sudo apt install -f
+
+== Install _"tar"_ and other compressed software
+
+Usually this packages are installed like this:
+
+. Get sources from their website
+
+. Go to download location and extract files, where _software-package_ is the downloaded package:
+
+ tar -xvzf software-package.tar.gz
+
+. Move extracted folder to `opt` folder:
+
+ sudo mv Software-Folder /opt/
+
+. Create a symbolic link for execute the software from terminal, where `software-executable` is an executable script.
+
+ sudo ln -s /opt/Software-Folder/software-executable /usr/bin/software-name
+
+. Create a _.desktop_ file in order to launch the app from the applications menu,
+ with the name of _software-name.desktop_
++
+ sudo vim /usr/share/applications/software-name.desktop
++
+with the following information:
++
+.software-name.desktop
+----
+[Desktop Entry]
+Encoding=UTF-8
+Name=Software Name
+Exec=software-name
+Icon=/opt/Postman/app/resources/app/assets/icon.png  // this location may change to look for the icon
+Terminal=false
+Type=Application
+Categories=Development;
+----
++
+save and exit.
 
 == Automatically Mount Partition [Optional]
 
-To mount other hard drives or partitions with files automatically at startup.
+To mount other hard drives or partitions automatically at startup.
 
 Mount _NTFS_ partition:
 
 . Install `ntfs-3g`:
 
- sudo apt-get install ntfs-3g
+ sudo apt install ntfs-3g
 
 . Create directory on `/media` which will be used for mounting partition (where _files_ is
 the name of the directory):
@@ -387,18 +498,18 @@ where:
 * `uid=1000,gid=1000` are the owners.
 * `umask=0022` are the permissions.
 
-. Reboot to ensure it succeeded. [Optional]
+. Reboot to test it. [Optional]
 
  sudo reboot
 
-CAUTION: If partition cannot be mounted, system won't boot, this happens for
-instance when the partition is part of windows and it has _fast boot_ option
-activated, or if the storage is not available.
+CAUTION: If partition cannot be mounted, system won't boot. This happens for
+instance when windows has _fast boot_ option activated or if the storage is not available.
 
 == On _Debian_ installation series
 
-* link:./index.html[01 - Debian Minimal Installation]
-* link:./index-03.html[03 - Debian Developer Installation]
-* link:./index-04.html[04 - Debian Gnome Configuration]
 
-include::disqus.adoc[]
+* link:./debian-10-01.html[01 - Debian Minimal Installation]
+* link:./debian-10-03.html[03 - Debian Developer Installation]
+* link:./debian-10-04.html[04 - Debian Gnome Configuration]
+
+include::{include-dir}/disqus.adoc[]

@@ -1,0 +1,230 @@
+:docinfo: shared
+:toc: left
+:icons: font
+:last-update-label!:
+:linkattrs:
+:include-dir: include
+
+= _Debian_ 10 basic installation with _Gnome_
+☣ By Alejandro Martin
+
+include::{include-dir}/version.adoc[]
+
+* Used release is _Debian 10 - Buster_
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github, window="_blank"]
+
+Guide for basic _Debian_ installation with _Gnome_ desktop.
+
+<<<
+
+== Minimal system installation
+
+NOTE: All commands have to be run as superuser.
+
+. Create bootable USB. If extra firmware(drivers) are needed, download them from _Debian_ repositories website and put _.ucode_ and _.fw_ files in the root of another USB.
+. Boot system from USB. If _UEFI_ installation is needed, boot the USB in UEFI mode, and after keyboard configuration go to a new terminal(`ctrl+alt+f2`) and type:
++
+ [ -d /sys/firmware/efi ] && echo UEFI || echo Legacy
++
+which it is going to print if the system was booted in _UEFI_ or _Legacy_ mode.
+Return to installation with (`ctrl+alt+f1`).
++
+. Follow installation steps and when you reach _Software Selection_ section, *ONLY* tick *_Standard System Utilities_* for a minimal system installation.
++
+TIP: For more detailed info about this step, you can follow this https://www.howtoforge.com/tutorial/debian-minimal-server/[guide, window="_blank"].
+
+. Reboot system and remove usb.
+
+== Connect to a wireless network [Optional]
+
+. Login as superuser:
+
+ su -
+
+. Look for the interface that will be used (_Wifi_ interfaces usally have a name like `wlan0` or `wlp1s0`):
+
+ ip a
+
+. Turn on the interface:
+
+ ip link set INTERFACE_NAME up
+
+. Look for a network to connect (replace interface name):
+
+ iw INTERFACE_NAME scan | less
+
+. Create a file with the network(replacing `NETWORK_NAME`). NOTE: After run
+the command, the password has to be inmediately typed:
+
+ wpa_passphrase NETWORK_NAME >> /etc/wpa_supplicant/wpa_supplicant.conf
+
+. Init the connection, using `-B` flag to run on background:
+
+ wpa_supplicant -B -i INTERFACE_NAME -c /etc/wpa_supplicant/wpa_supplicant.conf
+
+. Get an ip address using _dhcp_ client:
+
+ dhclient INTERFACE_NAME
+
+. Test connection(ping to Google dns):
+
+ ping 8.8.8.8
+
+. In case is needed, to release ip type:
+
+ dhclient -r
+
+. This step is *no* needed, but if you want to turn off the interface:
+
+ ip link set INTERFACE_NAME down
+
+== Configure repositories
+
+. Enter as superuser:
+
+ su -
+
+. Edit repositories file (*_nano_* editor is used here):
+
+ nano /etc/apt/sources.list
+
+. Comment the lines(add `#` at the beginning of line) if they start with `deb cdrom`.
+
+. Add `contrib` and `non-free` packages, appending `contrib non-free` after `main` in each repository line
+
+. Adjust mirror repository on each url based on your location,
+look for it at _Debian_ https://www.debian.org/mirror/list[_Mirrors_ website, window="_blank"].
+
+. [Optional] To use _Debian Testing_ distribution you should replace `stable` for `testing` on each line. For more information go to https://www.debian.org/releases/[_Debian Releases_ website, window="_blank"].
++
+IMPORTANT: This step is only needed if the _Debian Testing_ release is desired.
+
+. Save and quit(`ctrl+o`, `ctrl+x`).
+
+. It may end up like this(replace `MIRROR` with you region):
++
+.sources.list
+----
+ deb http://ftp.MIRROR.debian.org/debian/ stretch main contrib non-free
+ deb-src http://ftp.MIRROR.debian.org/debian/ stretch main contrib non-free
+ 
+ deb http://security.debian.org/ stretch/updates main contrib non-free
+ deb-src http://security.debian.org/ stretch/updates main contrib non-free
+
+ deb http://ftp.MIRROR.debian.org/debian/ stretch-updates main contrib non-free
+ deb-src http://ftp.MIRROR.debian.org/debian/ stretch-updates main contrib non-free
+----
++
+. [Optional] If you want newer packages on a _stable_ release (from testing distribution, mostly)
+you could append the _backports_ repositories:
++
+.sources.list[fragment]
+----
+
+# ... previous sources ...
+
+# backports
+deb http://ftp.MIRROR.debian.org/debian/ stretch-backports main contrib non-free
+deb-src http://ftp.MIRROR.debian.org/debian/ stretch-backports main contrib non-free
+----
++
+NOTE: These are the "Stretch" _backports_ repositories. For more information look for the official
+https://backports.debian.org/Instructions/[_backports instructions_, window="_blank"]. After each Debian stable_ release it will take a few days before _backports_ are available.
++
+*Important*, to install any package from the backports, it has to be installed with:
+
+ apt-get -t stretch-backports install "package"
+
+== Update & Upgrade
+
+. Update packages:
+
+ apt-get update
+
+. Upgrade packages:
+
+ apt-get upgrade
+
+. If testing repositories were added, it will need a _dist-upgrade_:
+
+ apt-get dist-upgrade
+
+== Add superuser privileges to main user
+
+. Install `sudo` package
+
+ apt-get install sudo
+
+. Add user to group `sudo`(which is on file:
+  with the permissions, replace USERNAME):
++
+ adduser USERNAME sudo
++
+As an alternative it can be used:
++
+ usermod -a -G sudo USERNAME
+
+TIP: These commands modify the `/etc/sudoers` file.
+
+
+== Install firmware
+
+. Install device linux firmware
+
+ apt-get install firmware-linux firmware-linux-free firmware-linux-nonfree
+
+. Install wifi firmware:
++
+ apt-get install firmware-iwlwifi
+
+== Install minimal _Gnome_ desktop
+
+. Install display server(`xserver-xorg-core`), minimal gnome desktop(`gnome-core`)
+  and gnome display manager(`gdm3`):
+
+ apt-get install gnome-core gdm3
+
+== Install Graphics card firmware
+
+=== Install _Nvidia_ Drivers
+
+. Install _Nvidia detect_ to identify the used nvidia card:
++
+ apt install nvidia-detect
++
+. Run command:
++
+ nvidia-detect
++
+NOTE: You will obtain a message like this image::img/nvidia-detect.png[Nvidia Detect]
++
+. Install _Nvidia_ firmware, and follow the instructions:
++
+ apt install linux-headers-$(uname -r|sed 's/[^-]*-[^-]*-//') nvidia-driver
++
+
+NOTE: Usually propietary drivers for Gpus have a better performance, they can be downloaded
+from their own websites. *BUT* OS drivers have a better compatibillity with other software, _Steam_ for example.
+
+=== Install _AMD_ Graphics Drivers
+
+. Install _AMD_ graphics firmware:
+
+ apt install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') fglrx-driver
+
+== Reboot
+
+. Reboot system:
+
+ reboot
+
+IMPORTANT: After the installation you should verify that the _Debian_ partition is the primary boot
+drive for your device in order to run the grub on multi-booting systems.
+
+== On _Debian_ installation series
+
+* link:./debian-10-02.html[02 - Debian Post Installation]
+* link:./debian-10-03.html[03 - Debian Developer Installation]
+* link:./debian-10-04.html[04 - Debian Gnome Configuration]
+
+include::{include-dir}/disqus.adoc[]

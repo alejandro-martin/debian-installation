@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="generator" content="Asciidoctor 1.5.8">
 <meta name="author" content="☣ By Alejandro Martin">
-<title>Debian Post-installation Guide</title>
+<title>Debian 9 Development Installation</title>
 <style>
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
@@ -717,38 +717,31 @@ b.conum * { color: inherit !important; }
 .literalblock pre, .listingblock pre { background: #eeeeee; }
 
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" type="image/png" href="img/debian-logo.png"/>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1><em>Debian</em> Post-installation Guide</h1>
+<h1><em>Debian</em> 9 Development Installation</h1>
 <div class="details">
 <span id="author" class="author">☣ By Alejandro Martin</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_install_compression_and_decompression_tools">Install compression and decompression tools</a></li>
-<li><a href="#_install_package_managers">Install package managers</a></li>
-<li><a href="#_install_basic_developer_compilation_libraries_and_tools">Install basic developer/compilation libraries and tools</a></li>
-<li><a href="#_install_java">Install Java</a></li>
-<li><a href="#_install_em_vim_em_optional">Install <em>Vim</em> [Optional]</a></li>
-<li><a href="#_customize_terminal_em_bash_em_prompt_optional">Customize terminal(<em>bash</em>) prompt [Optional]</a></li>
-<li><a href="#_choose_default_operating_system_at_grub_and_show_boot_info_at_startup_optional">Choose default operating system at grub and show boot info at startup [Optional]</a></li>
-<li><a href="#_set_multimedia_packages_repository_optional">Set multimedia packages repository [Optional]</a></li>
-<li><a href="#_install_basic_software">Install basic software</a>
+<li><a href="#_install_java">Install <em>Java</em></a>
 <ul class="sectlevel2">
-<li><a href="#_install_em_google_chrome_em_optional">Install <em>Google Chrome</em> [Optional]</a></li>
-<li><a href="#_install_em_libreoffice_em">Install <em>Libreoffice</em></a></li>
-<li><a href="#_install_some_basic_gui_tools">Install some basic gui tools</a></li>
-<li><a href="#_install_other_commands_optional">Install other commands [Optional]</a></li>
-<li><a href="#_install_em_asciidoctor_em_optional">Install <em>Asciidoctor</em> [Optional]</a></li>
-<li><a href="#_install_em_calibre_em_optional">Install <em>Calibre</em> [Optional]</a></li>
+<li><a href="#_install_sdkman">Install <em>SDKMAN!</em></a></li>
+<li><a href="#_install_jdk">Install <em>JDK</em></a></li>
+<li><a href="#_traditional_openjdk_installation">Traditional <em>OpenJDK</em> installation</a></li>
 </ul>
 </li>
-<li><a href="#_automatically_mount_partition_optional">Automatically Mount Partition [Optional]</a></li>
-<li><a href="#_on_em_debian_em_installation_series">On <em>Debian</em> installation series</a></li>
+<li><a href="#_install_atom">Install <em>Atom</em></a></li>
+<li><a href="#_install_visual_studio_code">Install <em>Visual Studio Code</em></a></li>
+<li><a href="#_install_intellij_idea">Install <em>IntelliJ Idea</em></a></li>
+<li><a href="#_install_postman">Install <em>Postman</em></a></li>
+<li><a href="#_configure_multiple_ssh_keys_for_git_optional">Configure multiple SSH keys for git [Optional]</a></li>
+<li><a href="#_on_debian_installation_series">On <em>Debian</em> installation series</a></li>
 <li><a href="#_comments">Comments</a></li>
 </ul>
 </div>
@@ -759,476 +752,177 @@ b.conum * { color: inherit !important; }
 <div class="ulist">
 <ul>
 <li>
-<p>The used release is <em>Debian Buster</em>.</p>
+<p>The used release is <em>Debian 9 - Stretch</em></p>
 </li>
 <li>
-<p>Sources and issues reports on <a href="https://github.com/alejandro-martin/debian-installation" target="_blank">Github</a></p>
+<p>Sources and issues reports on <a href="https://github.com/alejandro-martin/debian-installation" target="_blank" rel="noopener">Github</a></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Post-installation guide after a minimal <em>Debian</em> installation with <em>Gnome</em>.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-It is supposed main user has superuser privileges.
-</td>
-</tr>
-</table>
-</div>
-<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_install_compression_and_decompression_tools">Install compression and decompression tools</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Install basic compression and decompression packages:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install rar unrar zip unzip p7zip-full p7zip-rar bzip2 lzip lzop lbzip2 lrzip plzip</pre>
-</div>
-</div>
-</li>
-<li>
-<p><em>gui</em> tool for compression and decompression:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install file-roller</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_install_package_managers">Install package managers</h2>
+<h2 id="_install_java">Install <em>Java</em></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To manage packages installation, updates and removals.</p>
+<p><em>SDKMAN!</em> will be used for installing <em>JDK</em>. Many versions of java(<em>open-jdk 8</em>, <em>open-jdk 11</em>, <em>java oracle 8</em>, &#8230;&#8203;) could be installed and managed easily.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Install the following packages:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install aptitude synaptic gdebi</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>where:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>aptitude</code>: interface for installing packages.</p>
-</li>
-<li>
-<p><code>synaptic package manager</code>: <em>gui</em> for package management.</p>
-</li>
-<li>
-<p><code>gdebi</code>: <em>gui</em> to install <em>deb</em> packages.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_install_basic_developer_compilation_libraries_and_tools">Install basic developer/compilation libraries and tools</h2>
-<div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-No only for development but to compile and install other software.
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>On terminal type:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install build-essential cmake automake autoconf git git-core wget gdb curl</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>where:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>build-essential</code> includes the following packages:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>libc6-dev</code> - GNU C Library: Development Libraries and Header Files.</p>
-</li>
-<li>
-<p><code>gcc</code> - GNU C compiler.</p>
-</li>
-<li>
-<p><code>g&#43;&#43;</code> - GNU C++ compiler.</p>
-</li>
-<li>
-<p><code>make</code> - GNU Utility to compile and create groups.</p>
-</li>
-<li>
-<p><code>dpkg-dev</code> - Debian package development tools.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>automake</code>: compile tool.</p>
-</li>
-<li>
-<p><code>checkinstall</code>: create and install <em>.deb</em> package.</p>
-</li>
-<li>
-<p><code>cmake</code>: C compile tool.</p>
-</li>
-<li>
-<p><code>git</code> and <code>git-core</code>: version control tool.</p>
-</li>
-<li>
-<p><code>wget</code>: download files.</p>
-</li>
-<li>
-<p><code>gdb</code>: C debugger.</p>
-</li>
-<li>
-<p><code>curl</code>: for making requests.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Install linux headers for compilation tasks:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install linux-headers-$(uname -r)</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Install <em>Gtk</em> basic graphic library(avoid some <em>Gtk</em> errors):</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo aptitude install libcanberra-gtk-module</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_install_java">Install Java</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Install <em>JRE</em> for running java applications.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-For developers, this step can be skipped at this moment as it is going
-to be included later with <em>JDK</em> installment at the
-<a href="./index-03.html">Debian Developer Installation guide</a>.
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Install OpenJDK Java 8:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install openjdk-8-jre</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_install_em_vim_em_optional">Install <em>Vim</em> [Optional]</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Advanced terminal text editor.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>On terminal type:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install vim</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Modify vim configuration file:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo vim /etc/vim/vimrc</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>and append some custom options(syntax on and auto indent):</p>
-</div>
-<div class="listingblock">
-<div class="title">vimrc</div>
-<div class="content">
-<pre>syntax on
-set smartindent
-" set number
-" ...</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Save and exit.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_customize_terminal_em_bash_em_prompt_optional">Customize terminal(<em>bash</em>) prompt [Optional]</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Modify terminal prompt to reduce space on screen.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Open <code>.bashrc</code>:</p>
-<div class="literalblock">
-<div class="content">
-<pre>vim ~/.bashrc</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>and add this at the end of file:</p>
-</div>
-<div class="listingblock">
-<div class="title">.bashrc</div>
-<div class="content">
-<pre>PS1="\u:\W$ "</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>where <code>\u</code> is the username and <code>\W</code> is the last fragment of the current working directory.</p>
-</div>
-</li>
-<li>
-<p>Save and exit.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_choose_default_operating_system_at_grub_and_show_boot_info_at_startup_optional">Choose default operating system at grub and show boot info at startup [Optional]</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Open and modify grub:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo vim /etc/default/grub</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Select default operating system at startup [Optional]:</p>
-<div class="paragraph">
-<p>Change number on line for desired boot option position(check grub menu for positions):</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>GRUB_DEFAULT=0</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Show system boot info at startup [Optional]:</p>
-<div class="paragraph">
-<p>Change line:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>GRUB_CMDLINE_LINUX_DEFAULT="quiet"</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>for</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>GRUB_CMDLINE_LINUX_DEFAULT=""</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Save and exit.</p>
-</li>
-<li>
-<p>Update grub:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo update-grub2</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_set_multimedia_packages_repository_optional">Set multimedia packages repository [Optional]</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Repository for installing updated versions of multimedia applications
-(E.g. vlc, audacious, handbrak, kdenlive, audio and video codecs)</p>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-Sometimes this repository can break other dependencies. It is only
-recommended if you want the newest version of the mentioned applications.
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Edit repositories file</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo vim /etc/apt/sources.list</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Add the following lines at the end</p>
-<div class="listingblock">
-<div class="content">
-<pre># deb-multimedia
-# apt-get install deb-multimedia-keyring
-deb http://www.deb-multimedia.org testing main non-free</pre>
-</div>
-</div>
-</li>
-<li>
-<p>It may have end up like this:</p>
-<div class="listingblock">
-<div class="title">sources.list</div>
-<div class="content">
-<pre> deb http://ftp.mx.debian.org/debian/ testing main contrib non-free
- deb-src http://ftp.mx.debian.org/debian/ testing main contrib non-free
-
- deb http://security.debian.org/ testing/updates main contrib non-free
- deb-src http://security.debian.org/ testing/updates main contrib non-free
-
- deb http://ftp.mx.debian.org/debian/ testing-updates main contrib non-free
- deb-src http://ftp.mx.debian.org/debian/ testing-updates main contrib non-free
-
- # deb-multimedia
- # apt-get install deb-multimedia-keyring
- deb http://www.deb-multimedia.org testing main non-free</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The repositories are based on a <em>Debian Testing</em> release.
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>Save and exit.</p>
-</li>
-<li>
-<p>Update packages (this will throw an error which is going to be solved in the next step):</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get update</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Install repository keyring</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install deb-multimedia-keyring
-sudo apt-get update</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Upgrade packages:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get upgrade</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_install_basic_software">Install basic software</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_install_em_google_chrome_em_optional">Install <em>Google Chrome</em> [Optional]</h3>
+<h3 id="_install_sdkman">Install <em>SDKMAN!</em></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Get <em>.deb</em> package at <em>Google Chrome</em> website.</p>
-</li>
-<li>
-<p>Go to the download location and type:</p>
+<p>Type this command and follow the instructions:</p>
 <div class="literalblock">
 <div class="content">
-<pre>sudo dpkg -i package.deb</pre>
+<pre>curl -s "https://get.sdkman.io" | bash</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run:</p>
+<div class="literalblock">
+<div class="content">
+<pre>source "$HOME/.sdkman/bin/sdkman-init.sh"</pre>
+</div>
+</div>
+</li>
+<li>
+<p>To check if the installation succeeded:</p>
+<div class="literalblock">
+<div class="content">
+<pre>sdk version</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_install_jdk">Install <em>JDK</em></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List all <em>JDK</em> available:</p>
+<div class="literalblock">
+<div class="content">
+<pre>sdk list java</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can choose free <em>Java</em> implementations such as <em>OpenJDK</em> or <em>ZULU</em>.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install desired <em>JDK</em>:</p>
+<div class="literalblock">
+<div class="content">
+<pre>sdk install java 8.0.212-amzn</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+other <em>JVM</em> languages or tools could be installed with <em>SDKMAN!</em> as <em>Kotlin</em>,
+<em>Scala</em>, <em>Gradle</em>, <em>Maven</em> and so on
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_traditional_openjdk_installation">Traditional <em>OpenJDK</em> installation</h3>
+<div class="paragraph">
+<p>But if traditional <em>OpenJDK</em> installation is still preferred.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install <em>OpenJdk</em> <em>JDK</em> and <em>JVM</em> Java 8 :</p>
+<div class="literalblock">
+<div class="content">
+<pre>sudo apt-get install openjdk-8-jdk openjdk-8-jre</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_install_atom">Install <em>Atom</em></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get <em>.deb</em> package from the <em>Atom</em> website</p>
+</li>
+<li>
+<p>Go to download location and install package:</p>
+<div class="literalblock">
+<div class="content">
+<pre>sudo dpkg -i atom-amd64.deb</pre>
+</div>
+</div>
+</li>
+<li>
+<p>If there are missing dependencies, install them with:</p>
+<div class="literalblock">
+<div class="content">
+<pre>sudo apt-get install -f</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To install packages and themes go to <code>Edit &gt; Preferences &gt; Install</code>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_install_visual_studio_code">Install <em>Visual Studio Code</em></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get <em>.deb</em> package from the <em>Visual Studio Code</em> website</p>
+</li>
+<li>
+<p>Go to download location and install package:</p>
+<div class="literalblock">
+<div class="content">
+<pre>sudo dpkg -i code_1.19.2-1515599945_amd64.deb</pre>
 </div>
 </div>
 </li>
@@ -1243,383 +937,132 @@ sudo apt-get update</pre>
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_install_em_libreoffice_em">Install <em>Libreoffice</em></h3>
+</div>
+<div class="sect1">
+<h2 id="_install_intellij_idea">Install <em>IntelliJ Idea</em></h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Based on <em>JDK</em> installation, choose whether to install to all user or only
+current user
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Install office suite software and <em>Spanish</em> language:</p>
+<p>Get <em>.deb</em> package from the <em>Jetbrains</em> website</p>
+</li>
+<li>
+<p>Go to download location and extract files:</p>
 <div class="literalblock">
 <div class="content">
-<pre>sudo apt-get install libreoffice libreoffice-l10n-es</pre>
+<pre>tar -xvzf ideaIU-2017.3.3.tar.gz</pre>
 </div>
 </div>
 </li>
 <li>
-<p>If the <em>gui</em> is bad-looking, install theme support:</p>
+<p>Move extracted folder to <code>opt</code> folder:</p>
 <div class="literalblock">
 <div class="content">
-<pre>sudo apt-get install libreoffice-style-tango libreoffice-gtk3</pre>
+<pre>sudo mv idea-IU-173.4301.25/ /opt/</pre>
 </div>
 </div>
+</li>
+<li>
+<p>Execute binary file of the <em>IDE</em> and follow instructions to install:</p>
+<div class="literalblock">
+<div class="content">
+<pre>/opt/idea-IU-173.4301.25/bin/idea.sh</pre>
+</div>
+</div>
+</li>
+<li>
+<p>You shall indicate <em>jdk</em> installation folder.</p>
 </li>
 </ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_install_some_basic_gui_tools">Install some basic gui tools</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install gedit evince gnome-disk-utility gnome-screenshot rhythmbox vlc vlc-l10n kolourpaint4</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>where:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>gedit</code>: basic text editor.</p>
-</li>
-<li>
-<p><code>evince</code>: pdf reader.</p>
-</li>
-<li>
-<p><code>gnome-disk-utility</code>: system disks graphic visualization.</p>
-</li>
-<li>
-<p><code>gnome-screenshot</code>: software for advanced screenshots.</p>
-</li>
-<li>
-<p><code>rhythmbox</code>: music player. [Optional]</p>
-</li>
-<li>
-<p><code>vlc vlc-l10n</code>: video player. [Optional]</p>
-</li>
-<li>
-<p><code>kolourpaint4</code>: a basic linux image editor, similar to <em>Microsoft Paint</em>. [Optional]</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Other packages[Optional]:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install gparted brasero transmission gnome-sound-recorder meld bleachbit</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>where:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>gparted</code>: partition and format tool.</p>
-</li>
-<li>
-<p><code>brasero</code>: copy and burn cd&#8217;s.</p>
-</li>
-<li>
-<p><code>transmission</code>: torrent downloads.</p>
-</li>
-<li>
-<p><code>gnome-sound-recorder</code>: sound recorder.</p>
-</li>
-<li>
-<p><code>meld</code>: compare two files on _gui:.</p>
-</li>
-<li>
-<p><code>bleachbit</code>: clean temporal files, similar to <em>Ccleaner</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Others packages to be considered:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>evolution</code>: personal information manager, email, address book, calendar, etc.</p>
-</li>
-<li>
-<p><code>gnome-maps</code>: gnome maps.</p>
-</li>
-<li>
-<p><code>gnome-schedule</code>: gnome calendar.</p>
-</li>
-<li>
-<p><code>gnotes</code>: gnome notes.</p>
-</li>
-<li>
-<p><code>gtk-recordmydesktop</code>: software for recording screen.</p>
-</li>
-<li>
-<p><code>gksu</code>: superuser <em>gui</em> launcher. type <code>alt+f2</code> and type <code>gksu</code>, E.g. <code>gksu nautilus</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_install_other_commands_optional">Install other commands [Optional]</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install lm-sensors youtube-dl screenfetch xclip gnome-nettool rsync</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>where:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>lm-sensors</code>: Check processor temperatures. Type <code>sensors</code>.</p>
-</li>
-<li>
-<p><code>youtube-dl</code>: download youtube(and other pages) videos.</p>
-</li>
-<li>
-<p><code>screenfetch</code>: print system information.</p>
-</li>
-<li>
-<p><code>xclip</code>: copy information to clipboard on terminal.</p>
-</li>
-<li>
-<p><code>gnome-nettool</code>: network tools such as <em>ifconfig</em>, <em>ping</em>, <em>traceroute</em> &#8230;&#8203;</p>
-</li>
-<li>
-<p><code>rsync</code>: tool for sync files between hosts, devices.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Some leisure commands</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install cmatrix rig moria cowsay fortune</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>where:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>cmatrix</code>: simulates the display from &#8220;The Matrix&#8221;.</p>
-</li>
-<li>
-<p><code>rig</code>: generate random identities.</p>
-</li>
-<li>
-<p><code>moria</code>: <em>RPG</em> adventure game on terminal.</p>
-</li>
-<li>
-<p><code>fortune</code>: random sentences.</p>
-</li>
-<li>
-<p><code>cowsay</code>: ascii cow saying given text. You can pipe <code>fortune | cowsay</code>.</p>
-</li>
-<li>
-<p><code>libaa-bin</code>: use command <code>aafire</code> to show a fire.</p>
-</li>
-<li>
-<p><code>sl</code>: ascii train animation.</p>
-</li>
-<li>
-<p><code>xcowsay</code>: graphic cow saying given text.</p>
-</li>
-<li>
-<p><code>bb</code>: visual demo for terminal.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_install_em_asciidoctor_em_optional">Install <em>Asciidoctor</em> [Optional]</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Compiler for creating <em>Asciidoctor</em> documents:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo apt-get install asciidoctor</pre>
-</div>
-</div>
-</li>
-<li>
-<p>To create <em>Asciidoctor</em> files to <em>PDF</em>:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo gem install asciidoctor-pdf --pre</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_install_em_calibre_em_optional">Install <em>Calibre</em> [Optional]</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Software to manage ebooks and sync with e-reader.</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo -v &amp;&amp; wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_automatically_mount_partition_optional">Automatically Mount Partition [Optional]</h2>
+<h2 id="_install_postman">Install <em>Postman</em></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To mount other hard drives or partitions with files automatically at startup.</p>
-</div>
-<div class="paragraph">
-<p>Mount <em>NTFS</em> partition:</p>
+<p>To test rest apis.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Install <code>ntfs-3g</code>:</p>
+<p>Get sources from the <em>Postman</em> page</p>
+</li>
+<li>
+<p>Go to download location and extract files:</p>
 <div class="literalblock">
 <div class="content">
-<pre>sudo apt-get install ntfs-3g</pre>
+<pre>tar -xvzf Postman-linux-x64-5.5.2.tar.gz</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Create directory on <code>/media</code> which will be used for mounting partition (where <em>files</em> is
-the name of the directory):</p>
+<p>Move extracted folder to <code>opt</code> folder:</p>
 <div class="literalblock">
 <div class="content">
-<pre>sudo mkdir /media/files</pre>
+<pre>sudo mv Postman /opt/</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Identify desired partition to be mounted:</p>
+<p>Create a symbolic link for execute the software from terminal</p>
 <div class="literalblock">
 <div class="content">
-<pre>sudo fdisk -l</pre>
+<pre>sudo ln -s /opt/Postman/Postman /usr/bin/postman</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create a <em>.desktop</em> file in order to launch the app from the applications menu,
+with the name of <em>postman.desktop</em></p>
+<div class="literalblock">
+<div class="content">
+<pre>sudo vim /usr/share/applications/postman.desktop</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>this will display all partitions with this format:  <code>/dev/sdX#</code> where <code>X</code> is the
-storage device and <code>#</code> is the partition number.</p>
-</div>
-</li>
-<li>
-<p>Once the partition was identified, look for its <em>UUID</em>:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo blkid</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Edit <em>fstab</em> file for setup partition mounting on startup:</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo vim /etc/fstab</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>and add these lines(replace <code>XXXXXXXXXXXXXXXX</code> with <em>UUID</em> partition):</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>UUID=XXXXXXXXXXXXXXXX /media/files ntfs-3g uid=1000,gid=users,umask=0022 0 0</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>save and exit. <em>fstab</em> file may look similar to:</p>
+<p>with the following information:</p>
 </div>
 <div class="listingblock">
-<div class="title">fstab</div>
+<div class="title">postman.desktop</div>
 <div class="content">
-<pre># /etc/fstab: static file system information.
-#
-# Use 'blkid' to print the universally unique identifier for a
-# device; this may be used with UUID= as a more robust way to name devices
-# that works even if disks are added and removed. See fstab(5).
-#
-# &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;
-# / was on /dev/sda5 during installation
-UUID=942b3e5e-2634-46c9-9ecd-86bea21ce534 /               ext4    errors=remount-ro 0       1
-# /boot/efi was on /dev/sda2 during installation
-UUID=D82A-C79C  /boot/efi       vfat    umask=0077      0       1
-# swap was on /dev/sda6 during installation
-UUID=94daf3fe-d750-4f10-96e4-5df4f99753bf none            swap    sw              0       0
-
-
-#/dev/sdb1 /media/files ntfs-3g uid=1000,gid=1000 0 0
-
-#/dev/sdb1 /media/files ntfs default 0 0
-
-UUID=01D33276FAF0C850 /media/files ntfs-3g uid=1000,gid=1000,umask=0022 0 0</pre>
+<pre>[Desktop Entry]
+Encoding=UTF-8
+Name=Postman
+Exec=postman
+Icon=/opt/Postman/app/resources/app/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>where:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>UUID</code> is the unique identifier of the partition.</p>
-</li>
-<li>
-<p><code>/media/files</code> is the destination folder.</p>
-</li>
-<li>
-<p><code>uid=1000,gid=1000</code> are the owners.</p>
-</li>
-<li>
-<p><code>umask=0022</code> are the permissions.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Reboot to ensure it succeeded. [Optional]</p>
-<div class="literalblock">
-<div class="content">
-<pre>sudo reboot</pre>
-</div>
+<p>save and exit.</p>
 </div>
 </li>
 </ol>
 </div>
-<div class="admonitionblock caution">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If partition cannot be mounted, system won&#8217;t boot, this happens for
-instance when the partition is part of windows and it has <em>fast boot</em> option
-activated, or if the storage is not available.
+Go to <em>Settings</em> &gt; <em>Themes</em> to change user theme.
 </td>
 </tr>
 </table>
@@ -1627,18 +1070,27 @@ activated, or if the storage is not available.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_on_em_debian_em_installation_series">On <em>Debian</em> installation series</h2>
+<h2 id="_configure_multiple_ssh_keys_for_git_optional">Configure multiple SSH keys for git [Optional]</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to configure multiple <em>SSH</em> keys for <em>Git</em> check
+<a href="https://gist.github.com/alejandro-martin/aabe88cf15871121e076f66b65306610" target="_blank" rel="noopener">this guide</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_on_debian_installation_series">On <em>Debian</em> installation series</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="./index.html">01 - Debian Minimal Installation</a></p>
+<p><a href="./debian-9-01.html">01 - Debian Minimal Installation</a></p>
 </li>
 <li>
-<p><a href="./index-03.html">03 - Debian Developer Installation</a></p>
+<p><a href="./debian-9-02.html">02 - Debian Post Installation</a></p>
 </li>
 <li>
-<p><a href="./index-04.html">04 - Debian Gnome Configuration</a></p>
+<p><a href="./debian-9-04.html">04 - Debian Gnome Configuration</a></p>
 </li>
 </ul>
 </div>

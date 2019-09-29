@@ -1,0 +1,408 @@
+
+= _Debian_ 9 Post-Installation Guide
+☣ By Alejandro Martin
+:docinfo: shared
+:toc: left
+:icons: font
+:last-update-label!:
+:linkattrs:
+:include-dir: include/
+
+* The used release is _Debian 9 - Stretch_
+* Sources and issues reports on https://github.com/alejandro-martin/debian-installation[Github, window="_blank"]
+
+Post-installation guide after _Debian_ installation with _Gnome_.
+
+IMPORTANT: It is supposed that your user has superuser privileges.
+
+<<<
+
+== Install compression and decompression tools
+
+. Install basic compression and decompression packages:
+
+ sudo apt-get install rar unrar zip unzip p7zip-full p7zip-rar bzip2 lzip lzop lbzip2 lrzip plzip
+
+. _gui_ tool for compression and decompression:
+
+ sudo apt-get install file-roller
+
+== Install package managers
+
+To manage packages installation, updates and removals.
+
+. Install:
+
+ sudo apt-get install aptitude synaptic
++
+where:
++
+ * `aptitude`: interface for installing distribution packages.
+ * `synaptic package manager`: _gui_ for distribution package management [Optional].
+ * `gdebi`: _gui_ to install _deb_ packages [Optional].
+
+== Install basic developer/compilation libraries and tools
+
+NOTE: Not only for development but to compile and install other packages.
+
+. On terminal type:
++
+ sudo apt-get install build-essential cmake automake autoconf git git-core wget gdb curl
++
+where:
++
+* `build-essential` includes the following packages:
+** `libc6-dev` - GNU C Library: Development Libraries and Header Files.
+** `gcc` - GNU C compiler.
+** `g&#43;&#43;` - GNU C++ compiler.
+** `make` - GNU Utility to compile and create groups.
+** `dpkg-dev` - Debian package development tools.
+
+* `automake`: compile tool.
+* `checkinstall`: create and install _.deb_ package.
+* `cmake`: C compile tool.
+* `git` and `git-core`: version control tool.
+* `wget`: download files.
+* `gdb`: C debugger.
+* `curl`: for making requests.
++
+. Install linux headers for compilation tasks:
+
+ sudo apt-get install linux-headers-$(uname -r)
++
+. Install _Gtk_ basic graphic library(avoid some _Gtk_ errors):
+
+ sudo aptitude install libcanberra-gtk-module
+
+== Install Java
+
+Install _JRE_ for running java applications.
+
+NOTE: For developers: _JDK_ installation could be checked at link:./debian-9-03.html[Debian Developer Installation guide]. Although is recommended to also install the _JRE_ as distribution package.
+
+. Install OpenJDK Java 11:
+
+ sudo apt-get install openjdk-11-jre
+
+== Install _Vim_ ["Optional"]
+
+Advanced terminal text editor.
+
+. On terminal type:
+
+ sudo apt-get install vim
+
+. Modify vim configuration file:
++
+ sudo vim /etc/vim/vimrc
++
+and append some custom options(syntax on and auto indent):
++
+.vimrc
+----
+syntax on
+set smartindent
+" set number
+----
++
+. Save and exit.
+
+== Customize terminal(_bash_) prompt [Optional]
+
+Modify terminal prompt to reduce space on screen.
+
+. Open `.bashrc`:
++
+ vim ~/.bashrc
++
+and add this at the end of file:
++
+.{Blank}.bashrc
+-----
+PS1="\u:\W$ "
+-----
++
+where `\u` is the username and `\W` is the last fragment of the current working directory.
++
+. Save and exit.
+
+== Choose default operating system at grub and show boot info at startup [Optional]
+
+If you have a multi so boot, customize the grub.
+
+. Open and modify grub:
+
+ sudo vim /etc/default/grub
+
+. Select default operating system at startup [Optional]:
++
+Change number on line for desired boot option position(check grub menu for positions):
++
+ GRUB_DEFAULT=0
++
+
+. Show system boot info at startup [Optional]:
++
+Change line:
++
+ GRUB_CMDLINE_LINUX_DEFAULT="quiet"
++
+for
++
+ GRUB_CMDLINE_LINUX_DEFAULT=""
+
+. Save and exit.
+
+. Update grub:
+
+  sudo update-grub2
+
+== Set multimedia packages repository [Optional]
+
+Repository for installing updated versions of multimedia applications
+(E.g. vlc, audacious, handbrak, kdenlive, audio and video codecs)
+
+CAUTION: Sometimes this repository can break other dependencies. It is only
+recommended if you want the newest version of the mentioned applications.
+
+. Edit repositories file
+
+ sudo vim /etc/apt/sources.list
+
+. Add the following lines at the end
++
+----
+# deb-multimedia
+# apt-get install deb-multimedia-keyring
+deb http://www.deb-multimedia.org testing main non-free
+----
++
+. It may have end up like this:
++
+.sources.list
+----
+ deb http://ftp.mx.debian.org/debian/ testing main contrib non-free
+ deb-src http://ftp.mx.debian.org/debian/ testing main contrib non-free
+
+ deb http://security.debian.org/ testing/updates main contrib non-free
+ deb-src http://security.debian.org/ testing/updates main contrib non-free
+
+ deb http://ftp.mx.debian.org/debian/ testing-updates main contrib non-free
+ deb-src http://ftp.mx.debian.org/debian/ testing-updates main contrib non-free
+
+ # deb-multimedia
+ # apt-get install deb-multimedia-keyring
+ deb http://www.deb-multimedia.org testing main non-free
+----
++
+NOTE: The repositories are based on a _Debian Testing_ release.
+
+. Save and exit.
+
+. Update packages (this will throw an error which is going to be solved in the next step):
+
+ sudo apt-get update
+
+. Install repository keyring
+
+ sudo apt-get install deb-multimedia-keyring
+ sudo apt-get update
+
+. Upgrade packages:
+
+ sudo apt-get upgrade
+
+== Install basic software
+
+=== Install _Google Chrome_ [Optional]
+
+. Get _.deb_ package at _Google Chrome_ website.
+
+. Go to the download location and type:
+
+ sudo dpkg -i package.deb
+
+. If there are missing dependencies, install them with:
+
+ sudo apt-get install -f
+
+=== Install _Libreoffice_
+
+. Install office suite software and _Spanish_ language:
+
+ sudo apt-get install libreoffice libreoffice-l10n-es
+
+. If the _gui_ is bad-looking, install theme support:
+
+ sudo apt-get install libreoffice-style-tango libreoffice-gtk3
+
+=== Install some basic gui tools
+
+. Type:
++
+ sudo apt-get install gedit evince gnome-disk-utility gnome-screenshot rhythmbox vlc vlc-l10n kolourpaint4
++
+where:
+
+* `gedit`: basic text editor.
+* `evince`: pdf reader.
+* `gnome-disk-utility`: system disks graphic visualization.
+* `gnome-screenshot`: software for advanced screenshots.
+* `rhythmbox`: music player. [Optional]
+* `vlc vlc-l10n`: video player. [Optional]
+* `kolourpaint4`: a basic linux image editor, similar to _Microsoft Paint_. [Optional]
+
+. Other packages[Optional]:
++
+ sudo apt-get install gparted brasero transmission gnome-sound-recorder meld bleachbit
++
+where:
+
+* `gparted`: partition and format tool.
+* `brasero`: copy and burn cd's.
+* `transmission`: torrent downloads.
+* `gnome-sound-recorder`: sound recorder.
+* `meld`: compare two files on _gui:.
+* `bleachbit`: clean temporal files, similar to _Ccleaner_.
++
+. Others packages to be considered:
+* `evolution`: personal information manager, email, address book, calendar, etc.
+* `gnome-maps`: gnome maps.
+* `gnome-schedule`: gnome calendar.
+* `gnotes`: gnome notes.
+* `gtk-recordmydesktop`: software for recording screen.
+* `gksu`: superuser _gui_ launcher. type `alt+f2` and type `gksu`, E.g. `gksu nautilus`.
+
+=== Install other commands [Optional]
+
+. Type:
++
+ sudo apt-get install tree lm-sensors youtube-dl screenfetch xclip gnome-nettool rsync
++
+where:
++
+* `tree`: produces a depth indented listing of files and folders.
+* `lm-sensors`: Check processor temperatures. Type `sensors`.
+* `youtube-dl`: download youtube(and other pages) videos.
+* `screenfetch`: print system information.
+* `xclip`: copy information to clipboard on terminal.
+* `gnome-nettool`: network tools such as _ifconfig_, _ping_, _traceroute_ ...
+* `rsync`: tool for sync files between hosts, devices.
++
+. Some leisure commands [very optional]
++
+ sudo apt-get install cmatrix rig moria cowsay fortune
++
+where:
++
+* `cmatrix`: simulates the display from "`The Matrix`".
+* `rig`: generate random identities.
+* `moria`: _RPG_ adventure game on terminal.
+* `fortune`: random sentences.
+* `cowsay`: ascii cow saying given text. You can pipe `fortune | cowsay`.
+* `libaa-bin`: use command `aafire` to show a fire.
+* `sl`: ascii train animation.
+* `xcowsay`: graphic cow saying given text.
+* `bb`: visual demo for terminal.
+
+=== Install _Asciidoctor_ [Optional]
+
+. Compiler for creating _Asciidoctor_ documents:
+
+ sudo apt-get install asciidoctor
+
+. To create _Asciidoctor_ files to _PDF_:
+
+ sudo gem install asciidoctor-pdf --pre
+
+=== Install _Calibre_ [Optional]
+
+. Software to manage ebooks and sync with e-reader.
+
+ sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
++
+or visit their https://calibre-ebook.com/download_linux[website, window="_blank"]
+
+
+== Automatically Mount Partition [Optional]
+
+To mount other hard drives or partitions automatically at startup.
+
+Mount _NTFS_ partition:
+
+. Install `ntfs-3g`:
+
+ sudo apt-get install ntfs-3g
+
+. Create directory on `/media` which will be used for mounting partition (where _files_ is
+the name of the directory):
+
+ sudo mkdir /media/files
+
+. Identify desired partition to be mounted:
++
+ sudo fdisk -l
++
+this will display all partitions with this format:  `/dev/sdX#` where `X` is the
+storage device and `#` is the partition number.
+
+. Once the partition was identified, look for its _UUID_:
++
+ sudo blkid
++
+. Edit _fstab_ file for setup partition mounting on startup:
++
+ sudo vim /etc/fstab
++
+and add these lines(replace `XXXXXXXXXXXXXXXX` with _UUID_ partition):
++
+ UUID=XXXXXXXXXXXXXXXX /media/files ntfs-3g uid=1000,gid=users,umask=0022 0 0
++
+save and exit. _fstab_ file may look similar to:
++
+.fstab
+----
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda5 during installation
+UUID=942b3e5e-2634-46c9-9ecd-86bea21ce534 /               ext4    errors=remount-ro 0       1
+# /boot/efi was on /dev/sda2 during installation
+UUID=D82A-C79C  /boot/efi       vfat    umask=0077      0       1
+# swap was on /dev/sda6 during installation
+UUID=94daf3fe-d750-4f10-96e4-5df4f99753bf none            swap    sw              0       0
+
+
+#/dev/sdb1 /media/files ntfs-3g uid=1000,gid=1000 0 0
+
+#/dev/sdb1 /media/files ntfs default 0 0
+
+UUID=01D33276FAF0C850 /media/files ntfs-3g uid=1000,gid=1000,umask=0022 0 0
+----
++
+where:
+
+* `UUID` is the unique identifier of the partition.
+* `/media/files` is the destination folder.
+* `uid=1000,gid=1000` are the owners.
+* `umask=0022` are the permissions.
+
+. Reboot to test it. [Optional]
+
+ sudo reboot
+
+CAUTION: If partition cannot be mounted, system won't boot. This happens for
+instance when windows has _fast boot_ option activated or if the storage is not available.
+
+== On _Debian_ installation series
+
+
+* link:./debian-9-01.html[01 - Debian Minimal Installation]
+* link:./debian-9-03.html[03 - Debian Developer Installation]
+* link:./debian-9-04.html[04 - Debian Gnome Configuration]
+
+include::{include-dir}/disqus.adoc[]
