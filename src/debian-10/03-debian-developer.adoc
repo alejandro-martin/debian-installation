@@ -39,7 +39,7 @@ TIP: You can choose free _Java_ implementations such as _OpenJDK_ or _ZULU_.
 
 . Install desired _JDK_:
 
-  sdk install 11.0.4.hs-adpt
+  sdk install java 11.0.4.hs-adpt
 
 TIP: other _JVM_ languages or tools could be installed with _SDKMAN!_ as _Kotlin_,
 _Scala_, _Gradle_, _Maven_ and so on
