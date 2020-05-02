@@ -180,7 +180,7 @@ deb http://www.deb-multimedia.org testing main non-free
 . It may have end up like this:
 +
 .sources.list
-----
+```
  deb http://ftp.mx.debian.org/debian/ testing main contrib non-free
  deb-src http://ftp.mx.debian.org/debian/ testing main contrib non-free
 
@@ -194,6 +194,7 @@ deb http://www.deb-multimedia.org testing main non-free
  # apt-get install deb-multimedia-keyring
  deb http://www.deb-multimedia.org testing main non-free
 ----
+```
 +
 NOTE: The repositories are based on a _Debian Testing_ release.
 
